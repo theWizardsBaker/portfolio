@@ -1,16 +1,12 @@
 import React, { Suspense, lazy } from 'react';
+import Highlight from 'react-highlight'
 import ScrollToTop from './components/ScrollToTop.js'
 import Navbar from './components/Navbar.js'
-import thisFile from '!raw-loader!../public/index.html'
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-} from "react-router-dom";
+import CodeSnip from './components/CodeSnip.js'
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import './App.sass';
 
-// const HomePage = lazy(() => import('./components/HomePage'));
-// const Artwork = lazy(() => import('./components/Artwork.js'));
 
 export default class App extends React.Component {
 
@@ -36,7 +32,7 @@ export default class App extends React.Component {
           title: 'Games / Projects / Other',
           component: lazy(() => import('./components/Games'))
         }
-      ]
+      ],
     };
   }
 
@@ -46,28 +42,54 @@ export default class App extends React.Component {
         <BrowserRouter>
           {/* component to scroll to top */}
           <ScrollToTop />
-          <header className="hero is-dark is-bolded">
+          <header className="hero is-warning">
             <div className="hero-head">
               {/* show navbar */}
               <Navbar routes={this.state.routes} />
             </div>
             {/* page headder */}
             <div className="hero-body">
-              <div className="section">
-                <h1 className="title is-huge">Justin</h1>
-                <h1 className="title is-huge is-spaced">Le Tourneau</h1>
-                <h3 className="subtitle is-4 has-text-spaced">
-                  {
-                    this.state.routes.map((route, index) => {
-                      return <Route
-                        key={index}
-                        path={route.path}
-                        children={route.title}
-                        exact
-                      />
-                    })
-                  }
-                </h3>
+              <div className="header-content">
+                <div className="columns">
+                  <div className="column is-7-desktop is-8-tablet">
+                    <h1 className="title drop-shadow is-huge is-hidden-mobile">Justin</h1>
+                    <h1 className="title drop-shadow is-huge is-spaced is-hidden-mobile">Le Tourneau</h1>
+                    <h3 className="subtitle drop-shadow is-4 is-hidden-mobile has-text-spaced">
+                      {
+                        this.state.routes.map((route, index) => {
+                          return <Route key={index}
+                                        path={route.path}
+                                        children={route.title}
+                                        exact
+                                        />
+                        })
+                      }
+                    </h3>
+
+                    <h1 className="title is-1 is-hidden-tablet has-text-centered is-marginless">Justin</h1>
+                    <h1 className="title is-1 is-spaced is-hidden-tablet has-text-centered">Le Tourneau</h1>
+                    <h3 className="subtitle is-5 is-hidden-tablet has-text-centered has-text-spaced">
+                      {
+                        this.state.routes.map((route, index) => {
+                          return <Route key={index}
+                                        path={route.path}
+                                        children={route.title}
+                                        exact
+                                        />
+                        })
+                      }
+                    </h3>
+                  </div>
+                  <div className="column is-hidden-mobile">
+                    <div className="hero-right">
+                      <div className="scroll-content-down">
+                        <Highlight className="code-snip" language='javascript'>
+                          {CodeSnip}
+                        </Highlight>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </header>
@@ -76,7 +98,11 @@ export default class App extends React.Component {
             <Switch>
               {
                 this.state.routes.map((route, index) => {
-                    return  <Route key={index} path={route.path} exact component={route.component} />
+                    return  <Route key={index}
+                                   path={route.path}
+                                   component={route.component}
+                                   exact
+                                   />
                 })
               }
             </Switch>

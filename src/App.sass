@@ -6,6 +6,28 @@
 //4A6FA5
 //166088
 
+/* HSL */
+$color1: hsla(247%, 37%, 45%, 1);
+$color2: hsla(180%, 47%, 56%, 1);
+$color3: hsla(202%, 77%, 31%, 1);
+$color4: hsla(193%, 46%, 23%, 1);
+$color5: hsla(0%, 0%, 92%, 1);
+
+
+
+/* RGB */
+$turquoise: rgba(82, 72, 156, 1);
+$blue: rgba(89, 195, 195, 1);
+$cyan: rgba(18, 94, 138, 1);
+$green: rgba(32, 75, 87, 1);
+$yellow: rgba(235, 235, 235, 1);
+
+/* RGB */
+$turquoise: rgba(191, 189, 193, 1);
+$blue: rgba(109, 106, 117, 1);
+$cyan: rgba(18, 94, 138, 1);
+$green: rgba(32, 75, 87, 1);
+$yellow: rgba(55, 50, 62, 1);
 
 @import '../node_modules/bulma/sass/utilities/_all.sass';
 @import '../node_modules/bulma/sass/base/_all.sass';
@@ -24,11 +46,47 @@
 	width: 100%;
 	background-color: transparent; */
 
-.is-huge 
-	font-size: 7em;
+h1.title
 	font-family: 'Assistant', sans-serif;
+
+.drop-shadow
+	text-shadow: 8px 5px 4px rgba(41, 0, 0, 0.4);
+
+.is-huge 
+	font-size: 9vw;
 	& + .is-huge
 		margin-top: -.4em;
 
 .has-text-spaced
     word-spacing: 10px;
+
+.code-snip, pre
+	background-color: transparent;
+
+.header-content
+	padding-left: 3vw;
+	padding-right: 3vw;
+	max-height: 400px;
+	overflow: hidden;
+
+.hero-right
+	filter: blur(1px);
+
+.scroll-content-down
+    animation: moveDown 800s linear infinite, fadeIn 4s linear forwards;
+
+@keyframes moveDown
+    0%
+        transform: translateY(-4%);
+
+    100%
+        transform: translateY(-100%);
+
+@keyframes fadeIn
+    0%
+        opacity: 0%
+
+    100%
+        opacity: 100%
+
+
