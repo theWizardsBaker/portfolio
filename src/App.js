@@ -17,19 +17,19 @@ export default class App extends React.Component {
         {
           path: '/',
           name: 'Programming',
-          title: 'Developer / Administrator / Researcher',
+          title: "\{ Developer Administrator Co-Founder \}",
           component: lazy(() => import('./components/HomePage'))
         },
         {
           path: '/artwork',
           name: 'Artwork',
-          title: 'Scratchboards / Portraits / Digital Art',
+          title: 'Scratchboards &bull; Portraits &bull; Digital Art',
           component: lazy(() => import('./components/Artwork'))
         },
         {
           path: '/games',
           name: 'Games',
-          title: 'Games / Projects / Other',
+          title: '&lsaquo; Games Projects Testing &rsaquo;',
           component: lazy(() => import('./components/Games'))
         }
       ],
@@ -59,7 +59,9 @@ export default class App extends React.Component {
                         this.state.routes.map((route, index) => {
                           return <Route key={index}
                                         path={route.path}
-                                        children={route.title}
+                                        children={
+                                         <span dangerouslySetInnerHTML={{__html:route.title}} />
+                                        }
                                         exact
                                         />
                         })
@@ -83,8 +85,8 @@ export default class App extends React.Component {
                   <div className="column is-hidden-mobile">
                     <div className="hero-right">
                       <div className="scroll-content-down">
-                        <Highlight className="code-snip" language='javascript'>
-                          {CodeSnip}
+                        <Highlight className="code-snip" language='CodeSnip.language'>
+                          {CodeSnip.code}
                         </Highlight>
                       </div>
                     </div>

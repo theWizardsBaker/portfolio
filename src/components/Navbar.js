@@ -15,8 +15,9 @@ export default class Navbar extends React.Component {
 			        this.props.routes.map((route, index) => {
 			            return  <NavLink key={index} 
 			            								 to={route.path} 
-			            								 activeClassName="active" 
-			            								 className="navbar-item">
+			            								 activeClassName="is-active" 
+			            								 className="navbar-item"
+			            								 exact>
 			            	{route.name}
 			            </NavLink>
 			        })

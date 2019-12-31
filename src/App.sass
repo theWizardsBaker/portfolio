@@ -29,6 +29,8 @@ $cyan: rgba(18, 94, 138, 1);
 $green: rgba(32, 75, 87, 1);
 $yellow: rgba(55, 50, 62, 1);
 
+$family-sans-serif: 'Roboto', sans-serif;
+
 @import '../node_modules/bulma/sass/utilities/_all.sass';
 @import '../node_modules/bulma/sass/base/_all.sass';
 @import '../node_modules/bulma/sass/grid/_all.sass';
@@ -46,11 +48,14 @@ $yellow: rgba(55, 50, 62, 1);
 	width: 100%;
 	background-color: transparent; */
 
-h1.title
+h1.title, span.title
 	font-family: 'Assistant', sans-serif;
 
 .drop-shadow
-	text-shadow: 8px 5px 4px rgba(41, 0, 0, 0.4);
+	text-shadow: 8px 5px 4px rgba(0, 0, 0, 0.4);
+
+.drop-shadow-light
+	text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
 
 .is-huge 
 	font-size: 9vw;
@@ -72,12 +77,64 @@ h1.title
 .hero-right
 	filter: blur(1px);
 
+hr.small-divider
+	// background-color: $yellow
+	width: 300px;
+	margin: 10px auto;
+
+.astrodivider
+	margin: 35px auto;
+	margin-bottom: 67px;
+	width: 400px;
+	max-width: 100%;
+	position: relative;
+
+	span
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		bottom: 100%;
+		margin-bottom: -25px;
+		left: 50%;
+		margin-left: -25px;
+		border-radius: 100%;
+		box-shadow: 0 2px 4px $yellow;
+		border: 3px solid $yellow;
+		background: #fff;
+
+	i
+		position: absolute;
+		top: 4px;
+		bottom: 4px;
+		left: 4px;
+		right: 4px;
+		border-radius: 100%;
+		text-align: center;
+		line-height: 40px;
+		font-style: normal;
+		color: #049372;
+
+
+
+p.paragraph
+	text-indent: 4em;
+	font-size: 1.1em;
+	&::first-letter
+	    font-size: 1.7em;
+	    line-height: 1em;
+
+.navbar-item
+	font-weight: bold;
+
+.columns.vertical-align
+	align-items: center;
+
 .scroll-content-down
-    animation: moveDown 800s linear infinite, fadeIn 4s linear forwards;
+    animation: moveDown 500s linear infinite, fadeIn 4s linear forwards;
 
 @keyframes moveDown
     0%
-        transform: translateY(-4%);
+        transform: translateY(-2%);
 
     100%
         transform: translateY(-100%);

@@ -1,246 +1,192 @@
 const code= `
-<template>
-  <div class="hero is-dark is-medium">
-    <div class="hero-body">
-      <h4 class="title is-1 has-text-centered">
-        Hot Seat
-      </h4>
-      <h4 class="subtitle has-text-centered">
-        Start a new game or enter a game key to join another player's
-      </h4>
-      <div class="columns is-mobile is-3 is-centered is-multiline">
-        <div class="column is-narrow-mobile is-narrow-tablet"
-             :key="option.name"
-             v-for="option in gameOptions"
-             >
-          <card :display="option.display">
+#!/usr/bin/env ruby
+require 'artii'
+require 'colorize'
+require 'filesize'
 
-            <template #title>
-              {{option.name}}
-            </template>
+# don't throw an error on exit
+trap "SIGINT" do
+  puts "\n Quitting..."
+  exit 130
+end
 
-            <template #content>
-              {{option.text}}
-            </template>
+begin
+  
+  # splash screen
+  artii = Artii::Base.new({})
+  puts artii.asciify('SBatch Generator').blue
+  # directions
+  puts "Generate a #{"SLURM bash script ".yellow} to run jobs on the rnet research cluster\n\n"
+  # puts "Run this command with -h for a list of more options\n\n"
+  printf "Press "
+  printf "Ctrl + C ".red
+  puts "at any time to quit\n\n"
 
-            <template #footer>
-              <div class="field" v-if="option.hasOwnProperty('userName')">
-                <label class="label help">Name</label>
-                <div class="control">
-                  <input type="text"
-                         name="room"
-                         v-model="option.userName"
-                         class="input"
-                         length="25"
-                         :disabled="gameSelected"
-                         :class="{ 'is-danger': option.error }"
-                         />
-                </div>
-              </div>
-              <div class="field" v-if="!!option.hasOwnProperty('gameKey')">
-                <label class="label help">Game Key</label>
-                <div class="control">
-                  <input type="text"
-                         name="room"
-                         v-model="option.gameKey"
-                         class="input"
-                         :disabled="gameSelected"
-                         :class="{ 'is-danger': option.error }"
-                         length="10"
-                         hint="game key"
-                         />
-                </div>
-              </div>
+  # create time element
+  t = Time.now 
+  # get the script name
+  printf "Enter a new SBatch script #{"job name".green} ( leave blank for \`sbatch_[date]\` default ): "
+  job_name = gets.chomp
+  job_name = "sbatch_#{t.strftime("%Y_%m_%d")}" if job_name.empty?
+
+  # our list of nodes
+  nodes = []
+  # list of node header elements
+  node_header = []
+
+  # get all the cluster info
+  # contents = \`sinfo -S partitionname -O partitionname,available,cpus,cpusstate,defaulttime,freemem,memory\`
+  # for testing only 
+  contents = \`cat sinfo_output\`
+  # put all the clusters into a selectable object
+  contents.split("\n").each_with_index do |line, index| 
+    line = line.split("\s")
+    # get our header rows
+    if index < 1
+      node_header = line 
+      next
+    end
+    # create a node
+    nodes.push({
+      name: line[0],
+      available: line[1],
+      cpus: line[2].sub('+', '').to_i,
+      cpus_state: line[3].split("/"),
+      time_limit: line[4],
+      free_memory: line[5].to_i,
+      total_memory: line[6].sub('+', '').to_i
+    })
+  end
+  # list our nodes
+  nodes.each.with_index(1) do |node, index|  
+    puts "#{index}) #{node[:name]}".green
+    free = (node[:cpus_state][1].to_f / (node[:cpus_state][0].to_f.nonzero? || node[:cpus_state][1].to_f) ) * 100
+    puts "[ CPU => #{node[:cpus]} (#{free.to_i} % free), MEM => #{Filesize.from("#{node[:total_memory]} MB").to_s("GB")} (#{Filesize.from("#{node[:free_memory]} MB").to_s("GB")} free), TIME LIMIT => #{node[:time_limit]} ]".colorize((:red unless node[:available].eql? 'up'))
+    puts "-----------------------------"
+  end
+
+  # get the cluster to use
+  # node_selection.is_a? Numeric and 
+  node_selection = 0
+  until (1..nodes.size).include? node_selection
+    printf "\nSelect a cluster from the list above to run on (number): "
+    node_selection = gets.chomp.to_i
+  end
+
+  # get the node
+  selected_node = nodes[node_selection - 1]
+
+  # get cpu usage
+  cpus = 0
+  until (1..selected_node[:cpus]).include? cpus
+    puts "\nThe #{selected_node[:name]} node has #{selected_node[:cpus].to_s.green} total CPUs available."
+    printf "Number of CPUs to use: "
+    cpus = gets.chomp.to_i
+  end
+
+  # get the memory
+  memory = 0
+  until (1..selected_node[:total_memory]).include? memory.to_i and memory =~ /\d*[M|G]/
+    # get memory size
+    mem_gb = Filesize.from(selected_node[:total_memory].to_s + "MB").to_s("GB")
+    # print memory
+    puts "\n#{"#{selected_node[:total_memory]} MB".green} (#{mem_gb.green}) total memory is available."
+    printf "Amount of Memory to use (suffix #{"M".green} for megabytes and #{"G".green} for gigabytes): "
+    memory = gets.chomp.upcase
+    memory = memory.gsub(/\s/, '')
+  end
+
+  # figure out time
+  selected_node[:time_limit]
+  days = selected_node[:time_limit].slice!(/\d*-/)
+  hours, minutes, seconds = selected_node[:time_limit].split(":")
+
+  time = ""
+  # make sure it's in a close enough format
+  until time =~ /(\d-)?\d{1,2}(:\d{1,2})*/
+    printf "\nThe maximum time alloted is"
+    printf " #{days[/\d*/]} days".green if days 
+    printf " #{hours} hours".green if hours and hours != '00'
+    printf " #{minutes} minutes".green if minutes and minutes != '00'
+    printf " #{seconds} seconds".green if seconds and seconds != '00'
+    puts "."
+    puts "Time formats include:"
+    puts "minutes (20) \nminutes:seconds (20:15) \nhours:minutes:seconds (2:20:15)\ndays-hours (1-2)\ndays-hours:minutes (1-2:20) \ndays-hours:minutes:seconds (1-2:20:15)".yellow
+    printf  "Estimate job completion time: "
+    time = gets.chomp
+    time = time.gsub(/[A-z]/, '')
+    time = selected_node[:time_limit] if time.empty?
+  end
 
 
-              <div class="field">
-                <div class="control">
-                  <button class="button is-fullwidth"
-                          :disabled="gameSelected"
-                          @click="handleSelection(option)">
-                    {{option.action | capitalize}} Game
-                  </button>
-                </div>
-              </div>
+  # check if notifications
+  printf "\nWould you like email notification for you job's status? (yes / no): "
+  updates = gets.chomp.downcase.match(/^y/)
 
-            </template>
 
-          </card>
-        </div>
-      </div>
-      <div class="">
-        <h3 class="title is-4 has-text-danger has-text-centered">
-          {{errorMessage}}
-        </h3>
-      </div>
-    </div>
-  </div>
-</template>
+  email = ""
+  update_types = ""
+  if updates
+    until not email.empty? 
+      printf "Enter your #{"email".green}: "
+      email = gets.chomp.downcase
+    end
 
-<script>
-import Card from '@/components/Card.vue'
-import { mapGetters } from 'vuex'
+    until %w( BEGIN END FAIL ALL ).include? update_types
+      puts "Select the job status for notifications"
+      printf "select #{"BEGIN END FAIL".green} or #{"ALL".green}: "
+      update_types = gets.chomp.upcase
+    end
+  end
 
-export default {
 
-  name: 'GameSelect',
+  # get the output name
+  puts "\nEnter the #{"command".green} to execute."
+  puts "If you need to execute multiple lines, it is recommended to leave this blank and edit the #{"#{job_name}.sh".green} file after creation."
+  printf "Command: "
+  code_snip = gets.chomp
 
-  components: {
-    Card,
-  },
+  # get the output name
+  puts "\nThe results from the commands above will be placed in an output file."
+  printf "Enter an output file name ( leave blank for \`#{job_name}_[job-id].out\` default ): "
+  output_file = gets.chomp
+  output_file = "#{job_name}_%j.out" if output_file.empty?
 
-  mounted() {
-    // set up a nice delay in card flips
-    for(let i = 0; i < this.gameOptions.length; i++){
-      this.delay(800 + (i * 300)).then(() => {
-        this.$set(this.gameOptions[i], 'display', true)
-      })
-    }
 
-  },
+  File.open("#{job_name}.sh", 'w') do |f|
+    f.write("#!/bin/bash")
+    f.write("
+## sbatch params:
+## more params found here https://slurm.schedmd.com/sbatch.html
+## ----------------------------
+#SBATCH --partition=#{selected_node[:name]}
+#SBATCH --time=#{time}
+#SBATCH --cpus-per-task=#{cpus} 
+#SBATCH --mem=#{memory}
+#SBATCH --job-name=#{job_name}
+#SBATCH --output=#{output_file}")
+    if updates
+      f.write("
+#SBATCH --mail-type=#{update_types}
+#SBATCH --mail-user=#{email}")
+    end
+    f.write("       
+## place your code to run below:
+## ----------------------------
+## example: 
+## echo 'Hello World!'
+#{code_snip}
+      ")
+  end
 
-  data () {
-    return {
-      gameSelected: false,
-      errorMessage: '',
-      gameOptions: [
-        {
-          name: 'Create Game',
-          action: 'create',
-          text: 'Create a new game.',
-          error: false,
-          display: false,
-          userName: '',
-          selected: false,
-          spectate: false
-        },
-        {
-          name: 'Join Game',
-          action: 'join',
-          text: 'Join another user\'s game.',
-          error: false,
-          display: false,
-          gameKey: '',
-          userName: '',
-          selected: false,
-          spectate: false
-        },
-        {
-          name: 'Spectate Game',
-          action: 'spectate',
-          text: 'Watch another user\'s game.',
-          error: false,
-          display: false,
-          gameKey: '',
-          selected: false,
-          spectate: true
-        }
-      ]
-    }
-  },
-
-  watch: {
-
-    gameKey(val){
-      // if the user is in a game, navigate to the game
-      if(val){
-        this.playGame()
-      }
-    },
-
-  },
-
-  computed: {
-
-    ...mapGetters([
-      'gameKey',
-    ]),
-
-    // find the selected option
-    selectedOption(){
-      return this.gameOptions.find((opt) => opt.selected)
-    }
-  },
-
-  methods: {
-
-    handleSelection(option){
-      // reset our errors
-      this.errorMessage = ''
-      option.error = false
-      // check user name is filled
-      if( option.hasOwnProperty('userName') ) {
-        option.error = option.userName == "" || option.userName.length == 0
-      }
-      // check game key is filled
-      if( option.hasOwnProperty('gameKey') ) {
-        option.error = option.error || (option.gameKey == "" || option.gameKey.length == 0)
-      }
-      // if we're error free
-      if(!option.error){
-        // triger the game has been selected
-        this.gameSelected = true
-        // select this option as the one selected
-        option.selected = true
-        // this[option.action + 'Game']()
-        // get our options
-        let data = {
-          userId: null,
-          name: option.userName,
-          gameKey: option.gameKey,
-          spectate: option.spectate
-        }
-        // what action we'll send to the socket
-        let action = option.action === 'create' ? 'create_game' : 'join_game'
-        // emit to socket
-        this.$socket.client.emit(action, data, (response) => {
-          // if there was an error, show it
-          if(response.error){
-            this.showError(response.data.message)
-          } else {
-
-            // add the new elements
-            data.userId = response.data.userId
-            data.gameKey = response.data.gameKey
-            // create the new game
-            this.$store.dispatch(option.action === 'create' ? 'newGame' : 'joinGame', data)
-            // if(option.spectate){
-            //   this.$store.dispatch('playerSpectate', data)
-            // }
-          }
-        })
-      }
-    },
-
-    playGame(){
-      this.$router.push({
-        name: 'play',
-        params: { gameKey: this.$store.getters.gameKey }
-      })
-    },
-
-    showError(message){
-      this.selectedOption.error = true
-      this.selectedOption.selected = false
-      this.errorMessage = message
-      this.gameSelected = false
-    },
-
-  }
-}
-</script>
-
-<style scoped lang="scss">
-  .title {
-    font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
-  }
-  .spacer {
-    height: 80px;
-  }
-  .hero {
-    min-height: 100vh;
-  }
-</style>
+  puts "----------------------------"
+  puts "\n\nThe file #{"#{job_name}.sh".yellow} has been written to: #{Dir.pwd.yellow}"
+  puts "You may run this job with the command: #{"sbatch #{job_name}.sh".yellow}"
+rescue Exception => e
+  puts e
+end
 `;
 
-export default code;
+const language = 'ruby'
+
+export default { code: code, language: language };
