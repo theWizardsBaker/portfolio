@@ -9,7 +9,7 @@ export default class Navbar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar is-transparent is-dark">
+      <nav className="navbar is-transparent">
 	      <div className="navbar-end">
 			      {
 			        this.props.routes.map((route, index) => {

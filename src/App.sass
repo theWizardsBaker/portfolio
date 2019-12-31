@@ -9,21 +9,26 @@
 
 @import '../node_modules/bulma/sass/utilities/_all.sass';
 @import '../node_modules/bulma/sass/base/_all.sass';
+@import '../node_modules/bulma/sass/grid/_all.sass';
 @import '../node_modules/bulma/sass/elements/button.sass';
 @import '../node_modules/bulma/sass/elements/container.sass';
-@import '../node_modules/bulma/sass/elements/form.sass';
+// @import '../node_modules/bulma/sass/elements/form.sass';
 @import '../node_modules/bulma/sass/elements/title.sass';
-@import '../node_modules/bulma/sass/components/navbar.sass';
+// @import '../node_modules/bulma/sass/components/navbar.sass';
 @import '../node_modules/bulma/sass/layout/hero.sass';
 @import '../node_modules/bulma/sass/layout/section.sass';
+@import './styles/navbar.sass'
 
-.navbar
+/* .navbar
 	position: absolute;
 	width: 100%;
-	background-color: transparent;
+	background-color: transparent; */
 
 .is-huge 
 	font-size: 7em;
 	font-family: 'Assistant', sans-serif;
 	& + .is-huge
 		margin-top: -.4em;
+
+.has-text-spaced
+    word-spacing: 10px;
