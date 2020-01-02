@@ -110,6 +110,13 @@ export default class App extends React.Component {
             </Switch>
           </Suspense>
         </BrowserRouter>
+        <div className="footer">
+          <div className="hero">
+            Justin Le Tourneau
+            justin.letourn@gmail.com
+            &copy; Justin Le Tourneau, 2020
+          </div>
+        </div>
       </div>
     );
   }
