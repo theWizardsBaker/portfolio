@@ -1,15 +1,23 @@
 import React from 'react';
+// import OrgChart from './OrgChart.js'
 
 export default class HomePage extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      circles: {}
+      circles: {},
+      chart: {}
     }
   }
 
 	componentDidMount(state){
+
+ 		// let org = new OrgChart({
+			//   'chartContainer': '#chart-container',
+			//   'data' : '#org-chart'
+			// })
+
 		if (window.CarrotSearchCircles.supported) {
 		  this.setState({ 
 		  	circles: new window.CarrotSearchCircles({
@@ -23,7 +31,6 @@ export default class HomePage extends React.Component {
 		      ringShape: (attrs) => {
 		      	let widthMod = window.innerWidth > 1200 ? 40 : 5
 				    if (attrs.group.depth === 0) {
-				    	console.log(window.innerWidth)
 				      attrs.r_inner = (attrs.r_inner + widthMod) > 0 ? (attrs.r_inner + widthMod) : 1;
 				      attrs.r_outer = (attrs.r_outer - widthMod * 2) > 0 ? (attrs.r_outer - widthMod * 2) : 1;
 				    }
@@ -200,6 +207,7 @@ export default class HomePage extends React.Component {
 			  })
 		  })
 
+
 		  window.addEventListener("resize", () => {
 		  	if(this.state){
 		  		this.state.circles.resize()
@@ -294,92 +302,222 @@ export default class HomePage extends React.Component {
 	      			<h3 className="title is-4 drop-shadow-light">
 	      				Development
 	      			</h3>
+	      			<div className="columns">
+						    <div className="column">
+						    	<h3 className="subtitle is-5 drop-shadow-light">Web Development</h3>
+						    	<div className="columns">
+						    		<div className="column">
+					         		<ul>
+						          	<li>Front-End</li>
+						          	<li>
+						          		<ul>
+							          		<li>Javascript</li>
+							          		<li>
+							          			<ul>
+									          		<li>Vue.js</li>
+									          		<li>React</li>
+									          		<li>jQuery</li>
+									          		<li>Chart.js</li>
+									          		<li>Handlebar.js</li>
+									          	</ul>
+									          </li>
+							          		<li>CSS</li>
+							          		<li>
+							          			<ul>
+									          		<li>Bulma</li>
+									          		<li>Bootstrap</li>
+									          	</ul>
+									          </li>
+									        </ul>
+									      </li>
+							        </ul>
+							      </div>
+							      <div className="column">
+							        <ul>
+						          	<li>Back-End</li>
+						          	<li>
+						          		<ul>
+							          		<li>Node.js</li>
+							          		<li>
+							          			<ul>
+									          		<li>Express.js</li>
+									          		<li>Socket.io</li>
+									          		<li>JWT.io</li>
+									          		<li>Sequelize</li>
+									          	</ul>
+									          </li>
+							          		<li>Ruby on Rails</li>
+							          		<li>Django</li>
+							          		<li>Groovy</li>
+							          		<li>PHP</li>
+							          		<li>ColdFusion</li>
+							          	</ul>
+							          </li>
+							        </ul>
+							      </div>
+							      <div className="column">
+							      	<ul>
+						          	<li>Authentication</li>
+						          	<li>
+						          		<ul>
+							          		<li>JWT</li>
+							          		<li>Shibboleth</li>
+							          	</ul>
+							          </li>
+						          </ul>
+							      </div>
+							      <div className="column">
+							      	<ul>
+						          	<li>Communication</li>
+						          	<li>
+						          		<ul>
+							          		<li>REST Api</li>
+							          		<li>SOAP Api</li>
+							          		<li>AJAX</li>
+							          	</ul>
+							          </li>
+							        </ul>
+							      </div>
+							      <div className="column">
+							      	<ul>
+						          	<li>Tools</li>
+						          	<li>
+						          		<ul>
+							          		<li>Webpack</li>
+							          		<li>Bable</li>
+							          		<li>Sass</li>
+							          	</ul>
+							          </li>
+							        </ul>
+					          </div>
+						      </div>
+						    </div>
+						    <div className="column">
+				        	<h3 className="subtitle is-5 drop-shadow-light">Application Development</h3>
+						    	<div className="columns">
+						    		<div className="column">
+					        		<ul>
+					        			<li>Languages</li>
+					        			<li>
+					        				<ul>
+								          	<li>Ruby</li>
+								          	<li>Python</li>
+								          	<li>Java</li>
+								          	<li>
+								          		<ul>
+									          		<li>Ant</li>
+									          		<li>Gradle</li>
+									          	</ul>
+									          </li>
+							          		<li>Perl</li>
+								          	<li>C++</li>
+								          	<li>
+								          		<ul>
+										          	<li>WinForms</li>
+										          	<li>QT</li>
+										         	</ul>
+										        </li>
+										      </ul>
+										    </li>
+							        </ul>
+							      </div>
+						      </div>
+							  </div>
+								<div className="column">
+					        <h3 className="subtitle is-5 drop-shadow-light">Mobile</h3>
+						    	<div className="columns">
+						    		<div className="column">
+					         		<ul>
+					         			<li>Devices</li>
+					         			<li>
+					         				<ul>
+								          	<li>Android</li>
+								         	</ul>
+								        </li>
+						          	<li>Flutter</li>
+						          </ul>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
 
-			        <ul>
-			         	<li>Mobile</li>
-			         	<li>
-			         		<ul>
-				          	<li>Android</li>
-				          	<li>Flutter</li>
-				          </ul>
-				        </li>
-			          <li>Web Development</li>
-			         	<li>
-			         		<ul>
-				          	<li>Front-End</li>
-				          		<li>Javascript</li>
-					          		<li>Vue.js</li>
-					          		<li>React</li>
-					          		<li>jQuery</li>
-					          		<li>Chart.js</li>
-					          		<li>Handlebar.js</li>
-				          		<li>CSS</li>
-					          		<li>Bulma</li>
-					          		<li>Bootstrap</li>
-					        </ul>
-					      </li>
-				      </ul>
-				        <ul>
-			          	<li>Back-End</li>
-			          		<li>Node.js</li>
-				          		<li>Express.js</li>
-				          		<li>Socket.io</li>
-				          		<li>JWT.io</li>
-				          		<li>Sequelize</li>
-			          		<li>Ruby on Rails</li>
-			          		<li>Django</li>
-			          		<li>Groovy</li>
-			          		<li>PHP</li>
-			          		<li>ColdFusion</li>
-			          	<li>Authentication</li>
-			          		<li>JWT</li>
-			          		<li>Shibboleth</li>
-			          	<li>Communication</li>
-				          		<li>REST Api</li>
-				          		<li>SOAP Api</li>
-				          		<li>AJAX</li>
-			          	<li>Tools</li>
-			          		<li>Webpack</li>
-			          		<li>Bable</li>
-			          		<li>Sass</li>
-			          </ul>
-			          Application
-			          	Ruby
-			          	Python
-			          	Java
-			          		Ant
-			          		Gradle
-		          		Perl
-			          	C++
-				          	WinForms
-				          	QT
-
-			        Administration
-
-			        	DevOps
-			          	Web Servers
-				          	Apache
-				          	Nginx
-				          	Tomcat
-			          	Search
-				          	Elasticsearch
-				          	Lucene
-				          	Solr
-			          	Tools
-				          	Git
-				          	Docker
-				          	SLURM
-				          	Visualization
-					          	KVM
-					          	VMWare
-			          Databases
-				          SQL
-					          PostgreSQL
-					          SQLite
-					          MySQL
-				          NoSQL
-					          MongoDB
-					          Neo4J
+	      			<h3 className="title is-4 drop-shadow-light">
+				        Administration
+	      			</h3>
+	      			<div className="columns">
+	      				<div className="column">
+						    	<h3 className="subtitle is-5 drop-shadow-light">DevOps</h3>
+			      			<div className="columns">
+								    <div className="column">
+					        		<ul>
+						          	<li>Web Servers</li>
+							          <li>
+							          	<ul>
+								          	<li>Apache</li>
+								          	<li>Nginx</li>
+								          	<li>Tomcat</li>
+								          </ul>
+								        </li>
+								     	</ul>
+								    </div>
+								    <div className="column">
+								     	<ul>
+						          	<li>Search</li>
+							          <li>
+							          	<ul>
+								          	<li>Elasticsearch</li>
+								          	<li>Lucene</li>
+								          	<li>Solr</li>
+								          </ul>
+							          </li>
+								     	</ul>
+								    </div>
+								    <div className="column">
+								     	<ul>
+						          	<li>Tools</li>
+							          <li>
+							          	<ul>
+								          	<li>Git</li>
+								          	<li>Docker</li>
+								          	<li>SLURM</li>
+								          	<li>Visualization</li>
+								          	<li>
+								          		<ul>
+										          	<li>KVM</li>
+										          	<li>VMWare</li>
+										         	</ul>
+										        </li>
+									        </ul>
+									      </li>
+								      </ul>
+								    </div>
+									</div>
+								</div>
+	      				<div className="column">
+						    	<h3 className="subtitle is-5 drop-shadow-light">Databases</h3>
+							    <div className="columns">
+								    <div className="column">
+								    	<ul>
+							          <li>SQL</li>
+							          <li>
+							          	<ul>
+									          <li>PostgreSQL</li>
+									          <li>SQLite</li>
+									          <li>MySQL</li>
+									        </ul>
+									      </li>
+							          <li>NoSQL</li>
+							          <li>
+							          	<ul>
+									          <li>MongoDB</li>
+									          <li>Neo4J</li>
+									        </ul>
+									      </li>
+								      </ul>
+								    </div>
+								  </div>
+								</div>
+							</div>
       			{/*
       			<h3 className="title is-2 has-text-centered is-marginless drop-shadow-light">
       				Administration
