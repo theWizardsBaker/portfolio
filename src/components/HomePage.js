@@ -1,5 +1,4 @@
 import React from 'react';
-import { debounce } from "debounce";
 
 export default class HomePage extends React.Component {
 
@@ -16,29 +15,33 @@ export default class HomePage extends React.Component {
 		  	circles: new window.CarrotSearchCircles({
 			    id: "visualization",
 			    ringScaling: 1.4,
+			    zoomTime: 0.5,
+			    expandTime: 0.5,
 			    pixelRatio: 3,
       	  angleStart: 30,
       	  groupFontFamily: '"Assistant", sans-serif',
 		      ringShape: (attrs) => {
-				    if (attrs.group.depth == 0) {
-				      attrs.r_inner += 40;
-				      attrs.r_outer -= 80;
+		      	let widthMod = window.innerWidth > 1200 ? 40 : 5
+				    if (attrs.group.depth === 0) {
+				    	console.log(window.innerWidth)
+				      attrs.r_inner = (attrs.r_inner + widthMod) > 0 ? (attrs.r_inner + widthMod) : 1;
+				      attrs.r_outer = (attrs.r_outer - widthMod * 2) > 0 ? (attrs.r_outer - widthMod * 2) : 1;
 				    }
-				    if (attrs.group.depth == 1) {
-				      attrs.r_inner -= 80;
-				      attrs.r_outer -= 160;
+				    if (attrs.group.depth === 1) {
+				      attrs.r_inner = (attrs.r_inner - widthMod * 2) > 0 ? (attrs.r_inner - widthMod * 2) : 1;
+				      attrs.r_outer = (attrs.r_outer - widthMod * 4) > 0 ? (attrs.r_outer - widthMod * 4) : 1;
 				    }
-				    if (attrs.group.depth == 2) {
-				      attrs.r_inner -= 160;
-				      attrs.r_outer -= 160;
+				    if (attrs.group.depth === 2) {
+				      attrs.r_inner = (attrs.r_inner - widthMod * 4) > 0 ? (attrs.r_inner - widthMod * 4) : 1;
+				      attrs.r_outer = (attrs.r_outer - widthMod * 4) > 0 ? (attrs.r_outer - widthMod * 4) : 1;
 				    }
-				    if (attrs.group.depth == 3) {
-				      attrs.r_inner -= 160;
-				      attrs.r_outer -= 130;
+				    if (attrs.group.depth === 3) {
+				      attrs.r_inner = (attrs.r_inner - widthMod * 4) > 0 ? (attrs.r_inner - widthMod * 4) : 1;
+				      attrs.r_outer = (attrs.r_outer - widthMod * 3) > 0 ? (attrs.r_outer - widthMod * 3) : 1;
 				    }
-				    if (attrs.group.depth == 4) {
-				      attrs.r_inner -= 130;
-				      attrs.r_outer -= 30;
+				    if (attrs.group.depth === 4) {
+				      attrs.r_inner = (attrs.r_inner - widthMod * 3) > 0 ? (attrs.r_inner - widthMod * 3) : 1;
+				      attrs.r_outer = (attrs.r_outer - widthMod) > 0 ? (attrs.r_outer - widthMod) : 1;
 				    }
 				    // return attrs
 				  },
@@ -197,11 +200,11 @@ export default class HomePage extends React.Component {
 			  })
 		  })
 
-		  window.addEventListener("resize", debounce(() => {
+		  window.addEventListener("resize", () => {
 		  	if(this.state){
 		  		this.state.circles.resize()
 		  	}
-			}, 600, true))
+			})
 		} else {
 		  console.log("Visualization not supported.");
 		}
@@ -274,77 +277,109 @@ export default class HomePage extends React.Component {
       	</div>
       	<div className="hero is-link">
       		<div className="hero-body">
-      			<div>
-      				Skills
-      			</div>
-      			<div>
-      				<div id="visualization">
-      				</div>
-						{/*
-      			<h3 className="title is-2 has-text-centered is-marginless drop-shadow-light">
-      				Development
-      			</h3>
-      			*/}
-      			Web Development
-	      			Front End
-		      			(color javascript)
-		      			Frameworks	
-			      			Vue.js
-			      			React.js
-			      			jQuery
+      			<div className="columns is-3 vertical-align">
+	      			<div className="column is-8-tablet">
+		    				<div id="visualization">
+		    				</div>
+		    			</div>
+	      			<div className="column is-4-tablet">
+		      			<h1 className="title is-2 has-text-centered  drop-shadow-light is-spaced">Skills & Proficiencies</h1>
+		      			<h3 className="title is-5 has-text-centered  drop-shadow-light is-spaced">
+		      				double click to expand selections
+	      				</h3>
+	      			</div>
+		    		</div>
+      			<div className="content">
 
-		      			CSS
-			      			Bulma
-			      			Bootstrap
+	      			<h3 className="title is-4 drop-shadow-light">
+	      				Development
+	      			</h3>
 
-		      			Build Tools
-			      			Bable
-			      			Webpack
-			      			Sass
+			        <ul>
+			         	<li>Mobile</li>
+			         	<li>
+			         		<ul>
+				          	<li>Android</li>
+				          	<li>Flutter</li>
+				          </ul>
+				        </li>
+			          <li>Web Development</li>
+			         	<li>
+			         		<ul>
+				          	<li>Front-End</li>
+				          		<li>Javascript</li>
+					          		<li>Vue.js</li>
+					          		<li>React</li>
+					          		<li>jQuery</li>
+					          		<li>Chart.js</li>
+					          		<li>Handlebar.js</li>
+				          		<li>CSS</li>
+					          		<li>Bulma</li>
+					          		<li>Bootstrap</li>
+					        </ul>
+					      </li>
+				      </ul>
+				        <ul>
+			          	<li>Back-End</li>
+			          		<li>Node.js</li>
+				          		<li>Express.js</li>
+				          		<li>Socket.io</li>
+				          		<li>JWT.io</li>
+				          		<li>Sequelize</li>
+			          		<li>Ruby on Rails</li>
+			          		<li>Django</li>
+			          		<li>Groovy</li>
+			          		<li>PHP</li>
+			          		<li>ColdFusion</li>
+			          	<li>Authentication</li>
+			          		<li>JWT</li>
+			          		<li>Shibboleth</li>
+			          	<li>Communication</li>
+				          		<li>REST Api</li>
+				          		<li>SOAP Api</li>
+				          		<li>AJAX</li>
+			          	<li>Tools</li>
+			          		<li>Webpack</li>
+			          		<li>Bable</li>
+			          		<li>Sass</li>
+			          </ul>
+			          Application
+			          	Ruby
+			          	Python
+			          	Java
+			          		Ant
+			          		Gradle
+		          		Perl
+			          	C++
+				          	WinForms
+				          	QT
 
-      			Back End
-	      			Node.js
-	      			Ruby on Rails
-	      			PHP
-	      			Groovy
-	      			Django
-	      			ColdFusion
+			        Administration
 
-      			Web Services
-	      			REST Api
-	      			Socket.io
-	      			SOAP
-
-	      		Databases
-	      			SQL
-	      				PostgreSQL
-	      				MySQL
-	      				SQLite
-	      			NoSQL
-	      				MongoDB
-	      				Neo4J
-
-	      		Storage
-	      			Sequelize
-
-
-
-      			Authentication
-	      			JWT
-	      			Shibboleth
-
-
-
-
-
-      			mobile
-      				Android
-      				Flutter
-
-
-      			desktop
-      				WinForms
-      				Qt
+			        	DevOps
+			          	Web Servers
+				          	Apache
+				          	Nginx
+				          	Tomcat
+			          	Search
+				          	Elasticsearch
+				          	Lucene
+				          	Solr
+			          	Tools
+				          	Git
+				          	Docker
+				          	SLURM
+				          	Visualization
+					          	KVM
+					          	VMWare
+			          Databases
+				          SQL
+					          PostgreSQL
+					          SQLite
+					          MySQL
+				          NoSQL
+					          MongoDB
+					          Neo4J
       			{/*
       			<h3 className="title is-2 has-text-centered is-marginless drop-shadow-light">
       				Administration
