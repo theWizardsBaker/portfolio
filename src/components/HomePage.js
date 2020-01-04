@@ -1,5 +1,4 @@
 import React from 'react';
-// import OrgChart from './OrgChart.js'
 
 export default class HomePage extends React.Component {
 
@@ -18,7 +17,7 @@ export default class HomePage extends React.Component {
 			//   'data' : '#org-chart'
 			// })
 
-		if (window.CarrotSearchCircles.supported) {
+		if (window.CarrotSearchCircles && window.CarrotSearchCircles.supported) {
 		  this.setState({ 
 		  	circles: new window.CarrotSearchCircles({
 			    id: "visualization",
@@ -227,11 +226,6 @@ export default class HomePage extends React.Component {
 		}
 	}
 
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions.bind(this));
-  }
-
-
   render() {
     return (
       <div className="homepage">
@@ -252,9 +246,9 @@ export default class HomePage extends React.Component {
 					      		<span className="first-word">Hello there</span>, 
 					      		I'm Justin. I am a software developer and linux admin with over 8 years of professional experience.
 					      		I design, develop and deploy full-stack web, mobile and standard applications.
-					      		I administrate and deploy a variety of Debian and Redhat Linux systems for an evolutionary biology lab
+					      		I administrate and deploy a variety of Debian and Redhat Linux systems for an <a href="https://elsiklab.missouri.edu/" target="_blank">evolutionary biology lab </a> 
 					      		where I also write and contribute to bioinfomatics software.
-					      		I am CTO and sole developer for Quetza LLC, a company dedicated to developing agricultural educational software.
+					      		I am CTO and sole developer for <a href="https://www.seegenetics.com" target="_blank">Quetza LLC</a>, a company dedicated to developing agricultural educational software.
 				      		</p>
 				      		<div className="container">
 				      			<br/>
@@ -263,7 +257,7 @@ export default class HomePage extends React.Component {
 										  <div className="level-item has-text-centered">
 										  </div>
 										  <div className="level-item has-text-centered">
-										  	<a href="../../public/letourneau_resume.pdf" target="_blank" className="has-text-white">
+										  	<a href={process.env.PUBLIC_URL + 'letourneau_resume.pdf'} target="_blank" className="has-text-white">
 								      		<span className="icon is-link is-large is-spaced">
 									      		<i className="fa fa-file-text fa-3x" aria-hidden="true"></i>
 								      		</span>
@@ -445,24 +439,19 @@ export default class HomePage extends React.Component {
 										    </li>
 										  </ul>
 							      </div>
-						      </div>
-							  </div>
-								<div className="column is-narrow">
-					        <h1 className="title is-4 drop-shadow-light">Mobile</h1>
-						    	<div className="columns">
 						    		<div className="column is-narrow">
-				         			<ul>
-				         				<li>
-				         					<b>Devices</b>
+				        			<ul>
+				        				<li>
+				         					<b>Mobile</b>
 							         		<ul>
 								          	<li>Android</li>
 								          	<li>Flutter</li>
 								          </ul>
-								        </li>
-								      </ul>
-						        </div>
+										    </li>
+										  </ul>
+							      </div>
 						      </div>
-						    </div>
+							  </div>
 	      				<div className="column">
 						    	<h1 className="title is-4 drop-shadow-light">DevOps</h1>
 			      			<div className="columns is-multiline is-mobile is-8 is-variable">

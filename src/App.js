@@ -77,7 +77,9 @@ export default class App extends React.Component {
                         this.state.routes.map((route, index) => {
                           return <Route key={index}
                                         path={route.path}
-                                        children={route.title}
+                                        children={
+                                         <span dangerouslySetInnerHTML={{__html:route.title}} />
+                                        }
                                         exact
                                         />
                         })
@@ -114,9 +116,46 @@ export default class App extends React.Component {
         </BrowserRouter>
         <div className="footer">
           <div className="hero">
-            Justin Le Tourneau
-            justin.letourn@gmail.com
-            &copy; Justin Le Tourneau, 2020
+            <div className="columns is-mobile">
+              <div className="column is-2-tablet is-4-mobile">
+                <div className="level is-mobile">
+                  <div className="level-item has-text-centered">
+                    <a href={process.env.PUBLIC_URL + 'letourneau_resume.pdf'} target="_blank">
+                      <span className="icon is-link is-small is-spaced">
+                        <i className="fa fa-file-text" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </div>
+                  <div className="level-item has-text-centered">
+                    <a href="https://github.com/theWizardsBaker">
+                      <span className="icon is-link is-small is-spaced">
+                        <i className="fa fa-github" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </div>
+                  <div className="level-item has-text-centered">
+                    <a href="mailto:justin.letourn@gmail.com">
+                      <span className="icon is-link is-small is-spaced">
+                        <i className="fa fa-envelope" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </div>
+                  <div className="level-item has-text-centered">
+                    <a href="https://www.facebook.com/justin.letourneau">
+                      <span className="icon is-link is-small is-spaced">
+                        <i className="fa fa-facebook" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p>
+                &copy; Justin Le Tourneau, 2020
+              </p>
+            </div>
+
           </div>
         </div>
       </div>
