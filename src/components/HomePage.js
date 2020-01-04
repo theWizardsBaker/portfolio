@@ -27,7 +27,16 @@ export default class HomePage extends React.Component {
 			    expandTime: 0.5,
 			    pixelRatio: 3,
       	  angleStart: 30,
+      	  groupOutlineColor: "#141217",
+      	  labelDarkColor: "#141217",
+      	  zoomDecorationFillColor: "#6d6a757a",
+      	  zoomDecorationStrokeColor: "#6d6a757a",
+      	  expanderOutlineColor: "#fff",
+      	  expanderColor: "#fff",
+      	  groupSelectionOutlineColor: "#fff",
       	  groupFontFamily: '"Assistant", sans-serif',
+      	  rainbowStartColor: "#1e8fd0",
+				  rainbowEndColor:   "rgba(82, 72, 156, 1)",
 		      ringShape: (attrs) => {
 		      	let widthMod = window.innerWidth > 1200 ? 40 : 5
 				    if (attrs.group.depth === 0) {
@@ -124,6 +133,19 @@ export default class HomePage extends React.Component {
 			          	weight: 6,
 			          	depth: 1,
 			          	groups: [
+			          	{ label: "Authentication", 
+			          		depth: 2,
+			          		groups: [
+			          		{ label: "JWT", depth: 3 },
+			          		{ label: "Shibboleth", depth: 3 },
+			          	] },
+			          	{ label: "Communication", 
+			          		depth: 2,
+			          		groups: [
+				          		{ label: "REST Api", depth: 3 },
+				          		{ label: "SOAP Api", depth: 3 },
+				          		{ label: "AJAX", depth: 3 },
+			          	] },
 			          	{ label: "Front-End", 
 			          		depth: 2,
 			          		groups: [
@@ -159,19 +181,6 @@ export default class HomePage extends React.Component {
 			          		{ label: "Groovy", depth: 3 },
 			          		{ label: "PHP", depth: 3 },
 			          		{ label: "ColdFusion", depth: 3 },
-			          	] },
-			          	{ label: "Authentication", 
-			          		depth: 2,
-			          		groups: [
-			          		{ label: "JWT", depth: 3 },
-			          		{ label: "Shibboleth", depth: 3 },
-			          	] },
-			          	{ label: "Communication", 
-			          		depth: 2,
-			          		groups: [
-				          		{ label: "REST Api", depth: 3 },
-				          		{ label: "SOAP Api", depth: 3 },
-				          		{ label: "AJAX", depth: 3 },
 			          	] },
 			          	{ label: "Tools", 
 			          		depth: 2,
@@ -254,24 +263,36 @@ export default class HomePage extends React.Component {
 										  <div className="level-item has-text-centered">
 										  </div>
 										  <div className="level-item has-text-centered">
+										  	<a href="../../public/letourneau_resume.pdf" target="_blank" className="has-text-white">
+								      		<span className="icon is-link is-large is-spaced">
+									      		<i className="fa fa-file-text fa-3x" aria-hidden="true"></i>
+								      		</span>
+								      		<div className="subtitle is-5">Resume</div>
+							      		</a>
+
+										  </div>
+										  <div className="level-item has-text-centered">
 										  	<a href="https://github.com/theWizardsBaker" className="has-text-white">
-								      		<span className="icon is-link is-large">
+								      		<span className="icon is-link is-large is-spaced">
 									      		<i className="fa fa-github fa-3x" aria-hidden="true"></i>
 								      		</span>
+								      		<div className="subtitle is-5">Github</div>
 							      		</a>
 										  </div>
 										  <div className="level-item has-text-centered">
 											  <a href="mailto:justin.letourn@gmail.com" className="has-text-white">
-								      		<span className="icon is-link is-large">
+								      		<span className="icon is-link is-large is-spaced">
 									      		<i className="fa fa-envelope fa-3x" aria-hidden="true"></i>
 								      		</span>
+								      		<div className="subtitle is-5">Email</div>
 								      	</a>
 										  </div>
 										  <div className="level-item has-text-centered">
 											  <a href="https://www.facebook.com/justin.letourneau" className="has-text-white">
-								      		<span className="icon is-link is-large">
+								      		<span className="icon is-link is-large is-spaced">
 									      		<i className="fa fa-facebook fa-3x" aria-hidden="true"></i>
 								      		</span>
+								      		<div className="subtitle is-5">Facebook</div>
 								      	</a>
 										  </div>
 										  <div className="level-item has-text-centered">
@@ -287,8 +308,11 @@ export default class HomePage extends React.Component {
       		<div className="hero-body">
       			<div className="columns is-3 vertical-align">
 	      			<div className="column is-8-tablet">
-		    				<div id="visualization">
-		    				</div>
+	    					<div className="cover">
+	    						<div className="cover-image"></div>
+			    				<div id="visualization">
+			    				</div>
+	    					</div>
 		    			</div>
 	      			<div className="column is-4-tablet">
 		      			<h1 className="title is-2 has-text-centered  drop-shadow-light is-spaced">Skills & Proficiencies</h1>
@@ -297,22 +321,22 @@ export default class HomePage extends React.Component {
 	      				</h3>
 	      			</div>
 		    		</div>
-      			<div className="content">
-
-	      			<h3 className="title is-4 drop-shadow-light">
-	      				Development
-	      			</h3>
-	      			<div className="columns">
-						    <div className="column">
-						    	<h3 className="subtitle is-5 drop-shadow-light">Web Development</h3>
-						    	<div className="columns">
-						    		<div className="column">
-					         		<ul>
-						          	<li>Front-End</li>
+      		</div>
+      	</div>
+      	<div className="hero is-warning">
+      		<div className="hero-body">
+      			<div>
+	      			<div className="columns is-multiline is-mobile is-8 is-variable">
+						    <div className="column is-12-mobile is-7-tablet is-8-desktop">
+						    	<h1 className="title is-4 drop-shadow-light">Web Development</h1>
+						    	<div className="columns is-multiline is-mobile is-8 is-variable">
+						    		<div className="column is-narrow">
+				          		<ul>
 						          	<li>
+						          		<b>Front-End</b>
 						          		<ul>
-							          		<li>Javascript</li>
 							          		<li>
+							          			Javascript
 							          			<ul>
 									          		<li>Vue.js</li>
 									          		<li>React</li>
@@ -321,8 +345,8 @@ export default class HomePage extends React.Component {
 									          		<li>Handlebar.js</li>
 									          	</ul>
 									          </li>
-							          		<li>CSS</li>
 							          		<li>
+							          			CSS
 							          			<ul>
 									          		<li>Bulma</li>
 									          		<li>Bootstrap</li>
@@ -332,13 +356,13 @@ export default class HomePage extends React.Component {
 									      </li>
 							        </ul>
 							      </div>
-							      <div className="column">
-							        <ul>
-						          	<li>Back-End</li>
-						          	<li>
+							      <div className="column is-narrow">
+					          	<ul>
+					          		<li>
+					          			<b>Back-End</b>
 						          		<ul>
-							          		<li>Node.js</li>
 							          		<li>
+							          			Node.js
 							          			<ul>
 									          		<li>Express.js</li>
 									          		<li>Socket.io</li>
@@ -352,24 +376,24 @@ export default class HomePage extends React.Component {
 							          		<li>PHP</li>
 							          		<li>ColdFusion</li>
 							          	</ul>
-							          </li>
+							         	</li>
 							        </ul>
 							      </div>
-							      <div className="column">
-							      	<ul>
-						          	<li>Authentication</li>
-						          	<li>
+							      <div className="column is-narrow">
+					          	<ul>
+					          		<li>
+					          			<b>Authentication</b>
 						          		<ul>
 							          		<li>JWT</li>
 							          		<li>Shibboleth</li>
 							          	</ul>
-							          </li>
-						          </ul>
+							         	</li>
+							        </ul>
 							      </div>
-							      <div className="column">
-							      	<ul>
-						          	<li>Communication</li>
-						          	<li>
+							      <div className="column is-narrow">
+					          	<ul>
+					          		<li>
+					          			<b>Communication</b>
 						          		<ul>
 							          		<li>REST Api</li>
 							          		<li>SOAP Api</li>
@@ -378,10 +402,10 @@ export default class HomePage extends React.Component {
 							          </li>
 							        </ul>
 							      </div>
-							      <div className="column">
-							      	<ul>
-						          	<li>Tools</li>
-						          	<li>
+							      <div className="column is-narrow">
+					          	<ul>
+					          		<li>
+					          			<b>Tools</b>
 						          		<ul>
 							          		<li>Webpack</li>
 							          		<li>Bable</li>
@@ -392,26 +416,26 @@ export default class HomePage extends React.Component {
 					          </div>
 						      </div>
 						    </div>
-						    <div className="column">
-				        	<h3 className="subtitle is-5 drop-shadow-light">Application Development</h3>
+						    <div className="column is-narrow">
+				        	<h1 className="title is-4 drop-shadow-light">Application Development</h1>
 						    	<div className="columns">
-						    		<div className="column">
-					        		<ul>
-					        			<li>Languages</li>
-					        			<li>
+						    		<div className="column is-narrow">
+				        			<ul>
+				        				<li>
+				        					<b>Languages</b>
 					        				<ul>
 								          	<li>Ruby</li>
 								          	<li>Python</li>
-								          	<li>Java</li>
 								          	<li>
+								          		Java
 								          		<ul>
 									          		<li>Ant</li>
 									          		<li>Gradle</li>
 									          	</ul>
 									          </li>
 							          		<li>Perl</li>
-								          	<li>C++</li>
 								          	<li>
+								          		C++
 								          		<ul>
 										          	<li>WinForms</li>
 										          	<li>QT</li>
@@ -419,39 +443,33 @@ export default class HomePage extends React.Component {
 										        </li>
 										      </ul>
 										    </li>
-							        </ul>
+										  </ul>
 							      </div>
 						      </div>
 							  </div>
-								<div className="column">
-					        <h3 className="subtitle is-5 drop-shadow-light">Mobile</h3>
+								<div className="column is-narrow">
+					        <h1 className="title is-4 drop-shadow-light">Mobile</h1>
 						    	<div className="columns">
-						    		<div className="column">
-					         		<ul>
-					         			<li>Devices</li>
-					         			<li>
-					         				<ul>
+						    		<div className="column is-narrow">
+				         			<ul>
+				         				<li>
+				         					<b>Devices</b>
+							         		<ul>
 								          	<li>Android</li>
-								         	</ul>
+								          	<li>Flutter</li>
+								          </ul>
 								        </li>
-						          	<li>Flutter</li>
-						          </ul>
+								      </ul>
 						        </div>
 						      </div>
 						    </div>
-						  </div>
-
-	      			<h3 className="title is-4 drop-shadow-light">
-				        Administration
-	      			</h3>
-	      			<div className="columns">
 	      				<div className="column">
-						    	<h3 className="subtitle is-5 drop-shadow-light">DevOps</h3>
-			      			<div className="columns">
-								    <div className="column">
+						    	<h1 className="title is-4 drop-shadow-light">DevOps</h1>
+			      			<div className="columns is-multiline is-mobile is-8 is-variable">
+								    <div className="column is-narrow">
 					        		<ul>
-						          	<li>Web Servers</li>
 							          <li>
+							          	<b>Web Servers</b>
 							          	<ul>
 								          	<li>Apache</li>
 								          	<li>Nginx</li>
@@ -460,10 +478,10 @@ export default class HomePage extends React.Component {
 								        </li>
 								     	</ul>
 								    </div>
-								    <div className="column">
+								    <div className="column is-narrow">
 								     	<ul>
-						          	<li>Search</li>
 							          <li>
+							          	<b>Search</b>
 							          	<ul>
 								          	<li>Elasticsearch</li>
 								          	<li>Lucene</li>
@@ -472,10 +490,10 @@ export default class HomePage extends React.Component {
 							          </li>
 								     	</ul>
 								    </div>
-								    <div className="column">
+								    <div className="column is-narrow">
 								     	<ul>
-						          	<li>Tools</li>
 							          <li>
+							          	<b>Tools</b>
 							          	<ul>
 								          	<li>Git</li>
 								          	<li>Docker</li>
@@ -491,41 +509,36 @@ export default class HomePage extends React.Component {
 									      </li>
 								      </ul>
 								    </div>
-									</div>
-								</div>
-	      				<div className="column">
-						    	<h3 className="subtitle is-5 drop-shadow-light">Databases</h3>
-							    <div className="columns">
-								    <div className="column">
+								    <div className="column is-narrow">
 								    	<ul>
-							          <li>SQL</li>
 							          <li>
+							          	<b>Databases</b>
 							          	<ul>
-									          <li>PostgreSQL</li>
-									          <li>SQLite</li>
-									          <li>MySQL</li>
-									        </ul>
-									      </li>
-							          <li>NoSQL</li>
-							          <li>
-							          	<ul>
-									          <li>MongoDB</li>
-									          <li>Neo4J</li>
-									        </ul>
-									      </li>
+									          <li>
+										          SQL
+									          	<ul>
+											          <li>PostgreSQL</li>
+											          <li>SQLite</li>
+											          <li>MySQL</li>
+											        </ul>
+											      </li>
+									          <li>
+									          	NoSQL
+										          	<ul>
+												          <li>MongoDB</li>
+												          <li>Neo4J</li>
+												        </ul>
+											      </li>
+											    </ul>
+										    </li>
 								      </ul>
 								    </div>
 								  </div>
 								</div>
 							</div>
-      			{/*
-      			<h3 className="title is-2 has-text-centered is-marginless drop-shadow-light">
-      				Administration
-      			</h3>
-	      		*/}
-      				</div>
-      		</div>
-      	</div>
+    				</div>
+    			</div>
+    		</div>
       </div>
     );
   }

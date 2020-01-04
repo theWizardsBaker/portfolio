@@ -123,9 +123,20 @@ hr.small-divider
 
 #visualization
 	margin: auto;
-	width: 70vw;
-	height: 70vw;
+	width: 65vw;
+	height: 65vw;
 
+.cover
+	position: relative;
+	// .cover-image
+	//     height: 76px;
+	//     width: 60px;
+	//     position: absolute;
+	//     bottom: 20px;
+	//     left: 27px;
+	//     z-index: 200;
+	//     background-color: $blue;
+	//     background-color: blue;
 // canvas + canvas
 // 	visibility: transparent;
 
@@ -153,6 +164,29 @@ p.paragraph
 
 .scroll-content-down
     animation: moveDown 500s linear infinite, fadeIn 4s linear forwards;
+
+span.icon
+	&.is-spaced
+		margin-bottom: 10px;
+
+ul
+	color: $turquoise;
+	padding: 10px 0;
+	li
+		padding: 2px 0;
+
+		b
+		    margin-bottom: 10px;
+		    display: inline-block;
+		    font-size: 1.2em;
+	ul
+		ul
+			li
+				// list-style-type: circle;
+				padding-left: 12px;
+				border-left: 1px solid $turquoise;
+			margin-left: 2px;
+
 
 @keyframes moveDown
     0%
