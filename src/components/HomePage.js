@@ -127,7 +127,7 @@ export default class HomePage extends React.Component {
 			          	depth: 1,
 			          	groups: [
 			          	{ label: "Android", depth: 2 },
-			          	{ label: "Flutter", depth: 2 },
+			          	{ label: "*Flutter", depth: 2 },
 			          ]},
 			          { label: "Web Development",
 			          	weight: 6,
@@ -284,6 +284,7 @@ export default class HomePage extends React.Component {
       	</div>
       	<div className="hero is-warning">
       		<div className="hero-body">
+      			<h3 className="subtitle is-6 has-text-centered"><i>*Learning / Exploring</i></h3>
       			<div>
 	      			<div className="columns is-multiline is-mobile is-8 is-variable">
 						    <div className="column is-12-mobile is-7-tablet is-8-desktop">
@@ -410,7 +411,7 @@ export default class HomePage extends React.Component {
 				         					<b>Mobile</b>
 							         		<ul>
 								          	<li>Android</li>
-								          	<li>Flutter</li>
+								          	<li>*Flutter</li>
 								          </ul>
 										    </li>
 										  </ul>
