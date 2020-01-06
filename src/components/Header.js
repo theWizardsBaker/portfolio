@@ -1,7 +1,6 @@
 import React from 'react';
 import Highlight from 'react-highlight'
 import CodeSnip from './CodeSnip.js'
-import { Route } from "react-router-dom";
 
 export default class Header extends React.Component {
 
