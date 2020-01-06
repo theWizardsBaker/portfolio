@@ -4,80 +4,13 @@ import Gallery from 'react-photo-gallery';
 
 export default class Artwork extends React.Component {
 
-  render() {
-    const pictures = [
-        {
-          src: process.env.PUBLIC_URL + 'lupe.jpg',
-          width: 16,
-          height: 9,
-        },
-        {
-          src: process.env.PUBLIC_URL + 'bird2.jpg',
-          width: 4,
-          height: 3,
-        },
-        {
-          src: process.env.PUBLIC_URL + 'tiger2.jpg',
-          width: 4,
-          height: 3,
-        },
-        {
-          src: process.env.PUBLIC_URL + 'tiger.jpg',
-          width: 16,
-          height: 9,
-        },
-        {
-          src: process.env.PUBLIC_URL + 'vince.jpg',
-          width: 4,
-          height: 3,
-        },
-        {
-          src: process.env.PUBLIC_URL + 'rabbit.jpg',
-          width: 4,
-          height: 3,
-        },
-        {
-          src: process.env.PUBLIC_URL + 'bird.jpg',
-          width: 4,
-          height: 3,
-        },
-        {
-          src: process.env.PUBLIC_URL + 'dog.jpg',
-          width: 4,
-          height: 3,
-        },
-        {
-          src: process.env.PUBLIC_URL + 'squirell.jpg',
-          width: 16,
-          height: 9,
-        },
-        {
-          src: process.env.PUBLIC_URL + 'wolf.jpg',
-          width: 4,
-          height: 3,
-        },
-        {
-          src: process.env.PUBLIC_URL + 'bird3.jpg',
-          width: 4,
-          height: 3,
-        },
-        {
-          src: process.env.PUBLIC_URL + 'duke.jpg',
-          width: 16,
-          height: 8,
-        },
-        {
-          src: process.env.PUBLIC_URL + 'lion.jpg',
-          width: 16,
-          height: 9,
-        },
-        {
-          src: process.env.PUBLIC_URL + 'bailey.jpg',
-          width: 16,
-          height: 9,
-        },
-      ]
+  static defaultProps = {
+    photos: [],
+    label: "Button Text"
+  }
 
+  render() {
+    console.log(this.props, "stuff")
     return (
       <div>
         <div className="hero is-info">
@@ -85,17 +18,17 @@ export default class Artwork extends React.Component {
             <div>
               <h1 className="title is-2 has-text-centered  drop-shadow-light is-spaced">Artwork</h1>
               <div className="columns is-centered">
-                <div className="column is-half-tablet">
+                <div className="column is-half-desktop is-three-quarters-tablet is-fullwidth-mobile">
                   <div className="section">
                     <div className="container is-fluid">
                       <p className="paragraph">
-                        My artwork is primarily scratchboard art. Scratchboards are white clay boards rolled with black India ink.
+                        My artwork is primarily scratchboard art. A scratchboard is a white clay board rolled with black India ink.
                         The ink is removed by cutting or scratching with a knife. You can check out sample work below.
                         <br/>
                         <br/>
                         <br/>
                       </p>
-                      <h3 className="title is-5 has-text-centered has-text-primary">
+                      <h3 className="title is-4 has-text-centered">
                         Available for pet portraits and other comissions
                       </h3>
                     </div>
@@ -132,7 +65,7 @@ export default class Artwork extends React.Component {
                   </div>
                 </div>
                 <div className="content">
-                  <Gallery photos={pictures}  />
+                  <Gallery photos={this.props.photos}  />
                 </div>
               </div>
             </div>

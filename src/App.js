@@ -1,8 +1,8 @@
 import React, { Suspense, lazy } from 'react';
-import Highlight from 'react-highlight'
 import ScrollToTop from './components/ScrollToTop.js'
 import Navbar from './components/Navbar.js'
-import CodeSnip from './components/CodeSnip.js'
+import Header from './components/Header.js'
+import Footer from './components/Footer.js'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import './App.sass';
@@ -27,12 +27,108 @@ export default class App extends React.Component {
           component: lazy(() => import('./components/Artwork'))
         },
         {
-          path: '/games',
-          name: 'Games',
+          path: '/projects',
+          name: 'Projects',
           title: '&lsaquo; Games Projects Testing &rsaquo;',
           component: lazy(() => import('./components/Games'))
         }
       ],
+      photos: [
+        {
+          src: '/artwork/vince.jpg',
+          width: 4,
+          height: 3,
+        },
+        {
+          src: '/artwork/bird2.jpg',
+          width: 4,
+          height: 3,
+        },
+        {
+          src: '/artwork/tiger2.jpg',
+          width: 4,
+          height: 3,
+        },
+        {
+          src: '/artwork/tiger.jpg',
+          width: 16,
+          height: 9,
+        },
+                {
+          src: '/artwork/lupe.jpg',
+          width: 16,
+          height: 9,
+        },
+        {
+          src: '/artwork/squirell.jpg',
+          width: 16,
+          height: 9,
+        },
+        {
+          src: '/artwork/rabbit.jpg',
+          width: 4,
+          height: 3,
+        },
+        {
+          src: '/artwork/bird.jpg',
+          width: 4,
+          height: 3,
+        },
+        {
+          src: '/artwork/dog.jpg',
+          width: 4,
+          height: 3,
+        },
+        {
+          src: '/artwork/wolf.jpg',
+          width: 4,
+          height: 3,
+        },
+        {
+          src: '/artwork/bird3.jpg',
+          width: 4,
+          height: 3,
+        },
+        {
+          src: '/artwork/duke.jpg',
+          width: 16,
+          height: 8,
+        },
+        {
+          src: '/artwork/lion.jpg',
+          width: 16,
+          height: 9,
+        },
+        {
+          src: '/artwork/bailey.jpg',
+          width: 16,
+          height: 9,
+        },
+      ],
+      links: [
+        {
+          path: process.env.PUBLIC_URL + 'letourneau_resume.pdf',
+          icon: "fa-file-text",
+          text: "Resume"
+        },
+        {
+          path: "https://github.com/theWizardsBaker",
+          icon: "fa-github",
+          text: "Github"
+        },
+        {
+          path: "mailto:justin.letourn@gmail.com",
+          icon: "fa-envelope",
+          text: "Email"
+        },
+        {
+          path: "https://www.facebook.com/justin.letourneau",
+          icon: "fa-facebook",
+          text: "Facebook"
+        }
+      ]
+      // <span className="icon is-link is-small is-spaced">
+
     };
   }
 
@@ -48,65 +144,29 @@ export default class App extends React.Component {
               <Navbar routes={this.state.routes} />
             </div>
             {/* page headder */}
-            <div className="hero-body">
-              <div className="header-content">
-                <div className="columns">
-                  <div className="column is-7-desktop is-8-tablet">
-                    <h1 className="title drop-shadow is-huge is-hidden-mobile">Justin</h1>
-                    <h1 className="title drop-shadow is-huge is-hidden-mobile">Le Tourneau</h1>
-                    <h1 className="subtitle drop-shadow is-3 is-spaced is-hidden-mobile has-text-primary">justin.letourn@gmail.com</h1>
-                    <h3 className="subtitle drop-shadow is-4 is-hidden-mobile has-text-spaced">
-                      {
-                        this.state.routes.map((route, index) => {
-                          return <Route key={index}
-                                        path={route.path}
-                                        children={
-                                         <span dangerouslySetInnerHTML={{__html:route.title}} />
-                                        }
-                                        exact
-                                        />
-                        })
-                      }
-                    </h3>
-
-                    <h1 className="title is-1 is-hidden-tablet has-text-centered is-marginless">Justin</h1>
-                    <h1 className="title is-1 is-hidden-tablet has-text-centered">Le Tourneau</h1>
-                    <h1 className="subtitle drop-shadow is-5 is-spaced is-hidden-tablet has-text-primary has-text-centered">justin.letourn@gmail.com</h1>
-                    <h3 className="subtitle is-5 is-hidden-tablet has-text-centered has-text-spaced">
-                      {
-                        this.state.routes.map((route, index) => {
-                          return <Route key={index}
-                                        path={route.path}
-                                        children={
-                                         <span dangerouslySetInnerHTML={{__html:route.title}} />
-                                        }
-                                        exact
-                                        />
-                        })
-                      }
-                    </h3>
-                  </div>
-                  <div className="column is-hidden-mobile">
-                    <div className="hero-right">
-                      <div className="scroll-content-down">
-                        <Highlight className="code-snip" language='CodeSnip.language'>
-                          {CodeSnip.code}
-                        </Highlight>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Header>
+              {
+                this.state.routes.map((route, index) => {
+                  return <Route key={index}
+                                path={route.path}
+                                children={
+                                 <span dangerouslySetInnerHTML={{__html:route.title}} />
+                                }
+                                exact
+                                />
+                })
+              }
+            </Header>
           </header>
           <Suspense fallback={<div>Loading...</div>}>
             {/*load our different pages*/}
             <Switch>
               {
                 this.state.routes.map((route, index) => {
+                    let Component = route.component;
                     return  <Route key={index}
                                    path={route.path}
-                                   component={route.component}
+                                   render={() => <Component photos={this.state.photos} title="route.title" links={this.state.links} /> }
                                    exact
                                    />
                 })
@@ -114,50 +174,7 @@ export default class App extends React.Component {
             </Switch>
           </Suspense>
         </BrowserRouter>
-        <div className="footer">
-          <div className="hero">
-            <div className="columns is-mobile">
-              <div className="column is-2-tablet is-4-mobile">
-                <div className="level is-mobile">
-                  <div className="level-item has-text-centered">
-                    <a href={process.env.PUBLIC_URL + 'letourneau_resume.pdf'} target="_blank">
-                      <span className="icon is-link is-small is-spaced">
-                        <i className="fa fa-file-text" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                  </div>
-                  <div className="level-item has-text-centered">
-                    <a href="https://github.com/theWizardsBaker">
-                      <span className="icon is-link is-small is-spaced">
-                        <i className="fa fa-github" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                  </div>
-                  <div className="level-item has-text-centered">
-                    <a href="mailto:justin.letourn@gmail.com">
-                      <span className="icon is-link is-small is-spaced">
-                        <i className="fa fa-envelope" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                  </div>
-                  <div className="level-item has-text-centered">
-                    <a href="https://www.facebook.com/justin.letourneau">
-                      <span className="icon is-link is-small is-spaced">
-                        <i className="fa fa-facebook" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <p>
-                &copy; Justin Le Tourneau, 2020
-              </p>
-            </div>
-
-          </div>
-        </div>
+        <Footer links={this.state.links} />
       </div>
     );
   }

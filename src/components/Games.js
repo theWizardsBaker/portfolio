@@ -6,7 +6,7 @@ export default class Games extends React.Component {
   render() {
     return (
       <div className="games">
-        <div className="hero is-link">
+        <div className="hero is-info">
         	<div className="hero-body">
 		      	<h1 className="title is-2 has-text-centered is-marginless drop-shadow-light">Personal Projects</h1>
             <div className="columns is-centered">
@@ -23,7 +23,7 @@ export default class Games extends React.Component {
             </div>
         	</div>
         </div>
-        <div className="hero is-primary">
+        <div className="hero is-link">
         	<div className="hero-body">
             <div className="columns is-centered">
               <div className="column is-three-quarters">

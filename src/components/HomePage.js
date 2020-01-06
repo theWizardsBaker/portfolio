@@ -1,4 +1,5 @@
 import React from 'react';
+import LinkList from './LinkList.js';
 
 export default class HomePage extends React.Component {
 
@@ -10,13 +11,11 @@ export default class HomePage extends React.Component {
     }
   }
 
+  static defaultProps = {
+    links: []
+  }
+
 	componentDidMount(state){
-
- 		// let org = new OrgChart({
-			//   'chartContainer': '#chart-container',
-			//   'data' : '#org-chart'
-			// })
-
 		if (window.CarrotSearchCircles && window.CarrotSearchCircles.supported) {
 		  this.setState({ 
 		  	circles: new window.CarrotSearchCircles({
@@ -193,14 +192,14 @@ export default class HomePage extends React.Component {
 			          	weight: 3,
 			          	depth: 1,
 			          	groups: [
-			          	{ label: "Ruby", depth: 2 },
-			          	{ label: "Python", depth: 2 },
 			          	{ label: "Java", 
 			          		depth: 2,
 			          		groups: [
 			          		{ label: "Ant", depth: 3 },
 			          		{ label: "Gradle", depth: 3 }
 			          	]},
+			          	{ label: "Ruby", depth: 2 },
+			          	{ label: "Python", depth: 2 },
 		          		{ label: "Perl", depth: 2 },
 			          	{ label: "C++", 
 			          		depth: 2,
@@ -250,48 +249,10 @@ export default class HomePage extends React.Component {
 					      		where I also write and contribute to bioinfomatics software.
 					      		I am CTO and sole developer for <a href="https://www.seegenetics.com" target="_blank">Quetza LLC</a>, a company dedicated to developing agricultural educational software.
 				      		</p>
-				      		<div className="container">
+				      		<div className="container has-text-white">
 				      			<br/>
 				      			<br/>
-					      		<nav className="level is-mobile">
-										  <div className="level-item has-text-centered">
-										  </div>
-										  <div className="level-item has-text-centered">
-										  	<a href={process.env.PUBLIC_URL + 'letourneau_resume.pdf'} target="_blank" className="has-text-white">
-								      		<span className="icon is-link is-large is-spaced">
-									      		<i className="fa fa-file-text fa-3x" aria-hidden="true"></i>
-								      		</span>
-								      		<div className="subtitle is-5">Resume</div>
-							      		</a>
-
-										  </div>
-										  <div className="level-item has-text-centered">
-										  	<a href="https://github.com/theWizardsBaker" className="has-text-white">
-								      		<span className="icon is-link is-large is-spaced">
-									      		<i className="fa fa-github fa-3x" aria-hidden="true"></i>
-								      		</span>
-								      		<div className="subtitle is-5">Github</div>
-							      		</a>
-										  </div>
-										  <div className="level-item has-text-centered">
-											  <a href="mailto:justin.letourn@gmail.com" className="has-text-white">
-								      		<span className="icon is-link is-large is-spaced">
-									      		<i className="fa fa-envelope fa-3x" aria-hidden="true"></i>
-								      		</span>
-								      		<div className="subtitle is-5">Email</div>
-								      	</a>
-										  </div>
-										  <div className="level-item has-text-centered">
-											  <a href="https://www.facebook.com/justin.letourneau" className="has-text-white">
-								      		<span className="icon is-link is-large is-spaced">
-									      		<i className="fa fa-facebook fa-3x" aria-hidden="true"></i>
-								      		</span>
-								      		<div className="subtitle is-5">Facebook</div>
-								      	</a>
-										  </div>
-										  <div className="level-item has-text-centered">
-										  </div>
-										</nav>
+				      			<LinkList links={this.props.links} size="large"/>
 									</div>
 				      	</div>
 					    </div>
@@ -300,7 +261,7 @@ export default class HomePage extends React.Component {
       	</div>
       	<div className="hero is-link">
       		<div className="hero-body">
-      			<div className="columns is-3 vertical-align">
+      			<div className="columns is-8 vertical-align">
 	      			<div className="column is-8-tablet">
 	    					<div className="cover">
 	    						<div className="cover-image"></div>
@@ -309,8 +270,8 @@ export default class HomePage extends React.Component {
 	    					</div>
 		    			</div>
 	      			<div className="column is-4-tablet">
-		      			<h1 className="title is-2 has-text-centered  drop-shadow-light is-spaced">Skills & Proficiencies</h1>
-		      			<h3 className="title is-5 has-text-centered  drop-shadow-light is-spaced">
+		      			<h1 className="title is-2 has-text-centered drop-shadow-light is-spaced">Skills & Proficiencies</h1>
+		      			<h3 className="title is-5 has-text-centered drop-shadow-light is-spaced">
 		      				double click to expand selections
 	      				</h3>
 	      			</div>
