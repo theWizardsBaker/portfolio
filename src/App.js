@@ -158,7 +158,14 @@ export default class App extends React.Component {
               }
             </Header>
           </header>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={
+            <div className="hero is-small is-info">
+              <div className="hero-body has-text-centered">
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+              </div>
+            </div>
+          }>
+
             {/*load our different pages*/}
             <Switch>
               {

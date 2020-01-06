@@ -49,6 +49,7 @@ $footer-background-color: #141217;
 @import '../node_modules/bulma/sass/layout/footer.sass';
 @import './styles/navbar.sass'
 // @import './styles/orgchart.css'
+@import './styles/loading.css'
 
 /* .navbar
 	position: absolute;
@@ -138,20 +139,9 @@ a
 
 .cover
 	position: relative;
-	// .cover-image
-	//     height: 76px;
-	//     width: 60px;
-	//     position: absolute;
-	//     bottom: 20px;
-	//     left: 27px;
-	//     z-index: 200;
-	//     background-color: $blue;
-	//     background-color: blue;
-// canvas + canvas
-// 	visibility: transparent;
 
 p.paragraph
-	text-indent: 4em;
+	text-indent: 4vw;
 	font-size: 1.1em;
 	text-align: justify;
 	&::first-letter
@@ -159,10 +149,13 @@ p.paragraph
 	    line-height: 1em;
 	a 
 		color: $turquoise;
-		&:hover
-			text-decoration: underline;
 
+p 
+	a:hover
+		text-decoration: underline;
 
+.level-item + .level-item
+	padding: 10px;
 
 .navbar-item
 	font-weight: bold;
@@ -174,8 +167,7 @@ p.paragraph
     animation: moveDown 500s linear infinite, fadeIn 4s linear forwards;
 
 span.icon
-	&.is-spaced
-		margin-bottom: 10px;
+	margin-top: 10px;
 	&+div
 		padding-top: 6px;
 
@@ -210,11 +202,11 @@ ul
     100%
         transform: translateY(-100%);
 
-@keyframes fadeIn
-    0%
-        opacity: 0%
-
-    100%
-        opacity: 100%
-
+@keyframes fadeIn 
+	0% 
+		opacity: 0;
+	
+	100% 
+		opacity: 1;
+	
 

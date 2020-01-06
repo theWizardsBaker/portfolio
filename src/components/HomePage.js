@@ -33,8 +33,10 @@ export default class HomePage extends React.Component {
       	  expanderColor: "#fff",
       	  groupSelectionOutlineColor: "#fff",
       	  groupFontFamily: '"Assistant", sans-serif',
-      	  rainbowStartColor: "#1e8fd0",
-				  rainbowEndColor:   "rgba(82, 72, 156, 1)",
+      	  // rainbowStartColor: "#fff",
+      	  rainbowStartColor: "#1480bf",
+      	  rainbowEndColor: "#1d9ce6",
+				  // rainbowEndColor:   "rgba(82, 72, 156, 1)",
 		      ringShape: (attrs) => {
 		      	let widthMod = window.innerWidth > 1200 ? 40 : 5
 				    if (attrs.group.depth === 0) {
@@ -230,7 +232,7 @@ export default class HomePage extends React.Component {
       <div className="homepage">
       	<div className="hero is-info">
       		<div className="hero-body">
-      			<div className="section">
+      			<div className="">
       				<div className="columns vertical-align">
       					<div className="column is-6-tablet">
 					      	<h1 className="title is-2 has-text-centered is-marginless drop-shadow-light">Software Development</h1>
@@ -241,25 +243,27 @@ export default class HomePage extends React.Component {
 					      	<br/>
 				      	</div>
 					      <div className="column">
-					      	<p className="paragraph drop-shadow-light">
-					      		<span className="first-word">Hello there</span>, 
-					      		I'm Justin. I am a software developer and linux admin with over 8 years of professional experience.
-					      		I design, develop and deploy full-stack web, mobile and standard applications.
-					      		I administrate and deploy a variety of Debian and Redhat Linux systems for an <a href="https://elsiklab.missouri.edu/" target="_blank">evolutionary biology lab </a> 
-					      		where I also write and contribute to bioinfomatics software.
-					      		I am CTO and sole developer for <a href="https://www.seegenetics.com" target="_blank">Quetza LLC</a>, a company dedicated to developing agricultural educational software.
-				      		</p>
-				      		<div className="container has-text-white">
-				      			<br/>
-				      			<br/>
-				      			<LinkList links={this.props.links} size="large"/>
+					      	<div className="section">
+						      	<p className="paragraph drop-shadow-light">
+						      		<span className="first-word">Hello there</span>,
+						      		I'm Justin. I am a software developer and linux admin with over 8 years of professional experience.
+						      		I design, develop and deploy full-stack web, mobile and standard applications.
+						      		I administer and deploy a variety of Debian and Redhat Linux systems for an <a href="https://elsiklab.missouri.edu/" target="_blank">evolutionary biology lab </a> 
+						      		where I also write and contribute to bioinformatics software.
+						      		I am CTO and sole developer for <a href="https://www.seegenetics.com" target="_blank">Quetza LLC</a>, a company dedicated to developing agricultural educational software.
+					      		</p>
+					      		<div className="container has-text-white">
+					      			<br/>
+					      			<br/>
+					      			<LinkList links={this.props.links} size="large"/>
+										</div>
 									</div>
 				      	</div>
 					    </div>
 		      	</div>
 	      	</div>
       	</div>
-      	<div className="hero is-link">
+      	<div className="hero is-link is-bold">
       		<div className="hero-body">
       			<div className="columns is-8 vertical-align">
 	      			<div className="column is-8-tablet">
@@ -271,7 +275,7 @@ export default class HomePage extends React.Component {
 		    			</div>
 	      			<div className="column is-4-tablet">
 		      			<h1 className="title is-2 has-text-centered drop-shadow-light is-spaced">Skills & Proficiencies</h1>
-		      			<h3 className="title is-5 has-text-centered drop-shadow-light is-spaced">
+		      			<h3 className="title is-5 has-text-centered drop-shadow-light is-spaced is-hidden-mobile">
 		      				double click to expand selections
 	      				</h3>
 	      			</div>

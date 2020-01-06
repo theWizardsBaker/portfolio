@@ -1,8 +1,27 @@
 import React from 'react';
 import Gallery from 'react-photo-gallery';
+import LinkList from './LinkList.js'
 
 
 export default class Artwork extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      links: [
+        {
+          path: "https://www.instagram.com/awizardsbaker/",
+          icon: "fa-instagram",
+          text: "Instagram"
+        },
+        {
+          path: "https://photos.app.goo.gl/7jXetCKFWQFwymFR9",
+          icon: "fa-book",
+          text: "Sample Work"
+        }
+      ]
+    }
+  }
 
   static defaultProps = {
     photos: [],
@@ -10,7 +29,6 @@ export default class Artwork extends React.Component {
   }
 
   render() {
-    console.log(this.props, "stuff")
     return (
       <div>
         <div className="hero is-info">
@@ -19,7 +37,7 @@ export default class Artwork extends React.Component {
               <h1 className="title is-2 has-text-centered  drop-shadow-light is-spaced">Artwork</h1>
               <div className="columns is-centered">
                 <div className="column is-half-desktop is-three-quarters-tablet is-fullwidth-mobile">
-                  <div className="section">
+                  <div className="">
                     <div className="container is-fluid">
                       <p className="paragraph">
                         My artwork is primarily scratchboard art. A scratchboard is a white clay board rolled with black India ink.
@@ -28,8 +46,9 @@ export default class Artwork extends React.Component {
                         <br/>
                         <br/>
                       </p>
+                      <br/>
                       <h3 className="title is-4 has-text-centered">
-                        Available for pet portraits and other comissions
+                        Available for pet portraits and other commissions
                       </h3>
                     </div>
                   </div>
@@ -38,30 +57,13 @@ export default class Artwork extends React.Component {
             </div>
           </div>
         </div>
-        <div className="hero is-link">
+        <div className="hero is-link is-bold">
           <div className="hero-body">
             <div className="artwork section">
               <div className="container is-fluid">
                 <div className="columns is-centered">
                   <div className="column is-one-quarter">
-                    <nav className="level is-mobile">
-                  <div className="level-item has-text-centered">
-                    <a href='https://www.instagram.com/awizardsbaker/' target="_blank" className="has-text-white">
-                      <span className="icon is-link is-large is-spaced">
-                        <i className="fa fa-instagram fa-3x" aria-hidden="true"></i>
-                      </span>
-                      <div className="subtitle is-5">Instagram</div>
-                    </a>
-                  </div>
-                  <div className="level-item has-text-centered">
-                    <a href="https://photos.app.goo.gl/7jXetCKFWQFwymFR9" className="has-text-white">
-                      <span className="icon is-link is-large is-spaced">
-                        <i className="fa fa-book fa-3x" aria-hidden="true"></i>
-                      </span>
-                      <div className="subtitle is-5">Sample Work</div>
-                    </a>
-                  </div>
-                    </nav>
+                    <LinkList links={this.state.links} size="large" />
                   </div>
                 </div>
                 <div className="content">

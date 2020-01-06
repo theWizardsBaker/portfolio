@@ -23,7 +23,7 @@ export default class Games extends React.Component {
             </div>
         	</div>
         </div>
-        <div className="hero is-link">
+        <div className="hero is-link is-bold">
         	<div className="hero-body">
             <div className="columns is-centered">
               <div className="column is-three-quarters">
@@ -34,28 +34,28 @@ export default class Games extends React.Component {
                   		A little hidden loyalty type game. Testing Socket.io implementation
                   	</p>
                   	<br/>
-					      		<nav className="level is-mobile">
-										  <div className="level-item has-text-centered">
-										  </div>
-										  <div className="level-item has-text-centered">
-										  	<a href="https://kvm.justin-letourneau.dev" target="_blank" className="has-text-white">
-								      		<span className="icon is-link is-large is-spaced">
-									      		<i className="fa fa-gamepad fa-3x" aria-hidden="true"></i>
-								      		</span>
-								      		<div className="subtitle is-5">Game</div>
-							      		</a>
-										  </div>
-										  <div className="level-item has-text-centered">
-										  	<a href="https://github.com/theWizardsBaker/avalon" className="has-text-white">
-								      		<span className="icon is-link is-large is-spaced">
-									      		<i className="fa fa-github fa-3x" aria-hidden="true"></i>
-								      		</span>
-								      		<div className="subtitle is-5">Source Code</div>
-							      		</a>
-										  </div>
-										  <div className="level-item has-text-centered">
-										  </div>
-										</nav>
+                  	<div className="columns is-centered">
+                  		<div className="column is-half-tablet">
+							      		<nav className="level">
+												  <div className="level-item has-text-centered">
+												  	<a href="https://kvm.justin-letourneau.dev" target="_blank" className="has-text-white">
+										      		<span className="icon is-link is-large is-spaced">
+											      		<i className="fa fa-gamepad fa-3x" aria-hidden="true"></i>
+										      		</span>
+										      		<div className="subtitle is-5">Game</div>
+									      		</a>
+												  </div>
+												  <div className="level-item has-text-centered">
+												  	<a href="https://github.com/theWizardsBaker/avalon" className="has-text-white">
+										      		<span className="icon is-link is-large is-spaced">
+											      		<i className="fa fa-github fa-3x" aria-hidden="true"></i>
+										      		</span>
+										      		<div className="subtitle is-5">Source Code</div>
+									      		</a>
+												  </div>
+												</nav>
+											</div>
+										</div>
 									</div>
 								</div>
                 <div className="section">
@@ -65,28 +65,28 @@ export default class Games extends React.Component {
                   		A companion app for playing the card game HotSeat. Testing
                   	</p>
                   	<br/>
-					      		<nav className="level is-mobile">
-										  <div className="level-item has-text-centered">
-										  </div>
-										  <div className="level-item has-text-centered">
-										  	<a href="https://hotseat.justin-letourneau.dev" target="_blank" className="has-text-white">
-								      		<span className="icon is-link is-large is-spaced">
-									      		<i className="fa fa-gamepad fa-3x" aria-hidden="true"></i>
-								      		</span>
-								      		<div className="subtitle is-5">Game</div>
-							      		</a>
-										  </div>
-										  <div className="level-item has-text-centered">
-										  	<a href="https://github.com/theWizardsBaker/hotseat_companion" className="has-text-white">
-								      		<span className="icon is-link is-large is-spaced">
-									      		<i className="fa fa-github fa-3x" aria-hidden="true"></i>
-								      		</span>
-								      		<div className="subtitle is-5">Source Code</div>
-							      		</a>
-										  </div>
-										  <div className="level-item has-text-centered">
-										  </div>
-										</nav>
+                  	<div className="columns is-centered">
+                  		<div className="column is-half-tablet">
+							      		<nav className="level">
+												  <div className="level-item has-text-centered">
+												  	<a href="https://hotseat.justin-letourneau.dev" target="_blank" className="has-text-white">
+										      		<span className="icon is-link is-large is-spaced">
+											      		<i className="fa fa-gamepad fa-3x" aria-hidden="true"></i>
+										      		</span>
+										      		<div className="subtitle is-5">Game</div>
+									      		</a>
+												  </div>
+												  <div className="level-item has-text-centered">
+												  	<a href="https://github.com/theWizardsBaker/hotseat_companion" className="has-text-white">
+										      		<span className="icon is-link is-large is-spaced">
+											      		<i className="fa fa-github fa-3x" aria-hidden="true"></i>
+										      		</span>
+										      		<div className="subtitle is-5">Source Code</div>
+									      		</a>
+												  </div>
+												</nav>
+											</div>
+										</div>
                   </div>
                 </div>
               </div>
