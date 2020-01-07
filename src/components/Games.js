@@ -38,7 +38,7 @@ export default class Games extends React.Component {
                   		<div className="column is-half-tablet">
 							      		<nav className="level">
 												  <div className="level-item has-text-centered">
-												  	<a href="https://kvm.justin-letourneau.dev" target="_blank" className="has-text-white">
+												  	<a href="https://kvm.justin-letourneau.dev" target="_blank" rel="noopener noreferrer" className="has-text-white">
 										      		<span className="icon is-link is-large is-spaced">
 											      		<i className="fa fa-gamepad fa-3x" aria-hidden="true"></i>
 										      		</span>
@@ -46,7 +46,7 @@ export default class Games extends React.Component {
 									      		</a>
 												  </div>
 												  <div className="level-item has-text-centered">
-												  	<a href="https://github.com/theWizardsBaker/avalon" className="has-text-white">
+												  	<a href="https://github.com/theWizardsBaker/knightsvsminions" target="_blank" rel="noopener noreferrer" className="has-text-white">
 										      		<span className="icon is-link is-large is-spaced">
 											      		<i className="fa fa-github fa-3x" aria-hidden="true"></i>
 										      		</span>
@@ -69,7 +69,7 @@ export default class Games extends React.Component {
                   		<div className="column is-half-tablet">
 							      		<nav className="level">
 												  <div className="level-item has-text-centered">
-												  	<a href="https://hotseat.justin-letourneau.dev" target="_blank" className="has-text-white">
+												  	<a href="https://hotseat.justin-letourneau.dev" target="_blank" rel="noopener noreferrer" className="has-text-white">
 										      		<span className="icon is-link is-large is-spaced">
 											      		<i className="fa fa-gamepad fa-3x" aria-hidden="true"></i>
 										      		</span>
@@ -77,7 +77,7 @@ export default class Games extends React.Component {
 									      		</a>
 												  </div>
 												  <div className="level-item has-text-centered">
-												  	<a href="https://github.com/theWizardsBaker/hotseat_companion" className="has-text-white">
+												  	<a href="https://github.com/theWizardsBaker/hotseat_companion" target="_blank" rel="noopener noreferrer" className="has-text-white">
 										      		<span className="icon is-link is-large is-spaced">
 											      		<i className="fa fa-github fa-3x" aria-hidden="true"></i>
 										      		</span>

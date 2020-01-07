@@ -248,9 +248,9 @@ export default class HomePage extends React.Component {
 						      		<span className="first-word">Hello there</span>,
 						      		I'm Justin. I am a software developer and linux admin with over 8 years of professional experience.
 						      		I design, develop and deploy full-stack web, mobile and standard applications.
-						      		I administer and deploy a variety of Debian and Redhat Linux systems for an <a href="https://elsiklab.missouri.edu/" target="_blank">evolutionary biology lab </a> 
+						      		I administer and deploy a variety of Debian and Redhat Linux systems for an <a href="https://elsiklab.missouri.edu/" target="_blank" rel="noopener noreferrer">evolutionary biology lab </a> 
 						      		where I also write and contribute to bioinformatics software.
-						      		I am CTO and sole developer for <a href="https://www.seegenetics.com" target="_blank">Quetza LLC</a>, a company dedicated to developing agricultural educational software.
+						      		I am CTO and sole developer for <a href="https://www.seegenetics.com" target="_blank" rel="noopener noreferrer">Quetza LLC</a>, a company dedicated to developing agricultural educational software.
 					      		</p>
 					      		<div className="container has-text-white">
 					      			<br/>
@@ -378,7 +378,7 @@ export default class HomePage extends React.Component {
 						    </div>
 						    <div className="column is-narrow">
 				        	<h1 className="title is-4 drop-shadow-light">Application Development</h1>
-						    	<div className="columns">
+						    	<div className="columns is-mobile">
 						    		<div className="column is-narrow">
 				        			<ul>
 				        				<li>

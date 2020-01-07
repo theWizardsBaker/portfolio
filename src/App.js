@@ -161,7 +161,7 @@ export default class App extends React.Component {
           <Suspense fallback={
             <div className="hero is-small is-info">
               <div className="hero-body has-text-centered">
-                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
               </div>
             </div>
           }>

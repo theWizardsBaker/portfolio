@@ -23,7 +23,7 @@ export default class Footer extends React.Component {
               <p className="has-text-link">
                 Site built using React, Bulma and Node.js
                 <br/>
-                Source Code Available <a href="https://github.com/theWizardsBaker/portfolio" target="_blank">Here</a>
+                Source Code Available <a href="https://github.com/theWizardsBaker/portfolio" target="_blank" rel="noopener noreferrer">Here</a>
               </p>
               <p className="has-text-link">
                 &copy; Justin Le Tourneau, 2020
