@@ -419,7 +419,7 @@ export default class HomePage extends React.Component {
 						      </div>
 							  </div>
 	      				<div className="column">
-						    	<h1 className="title is-4 drop-shadow-light">DevOps</h1>
+					    	<h1 className="title is-4 drop-shadow-light">DevOps</h1>
 			      			<div className="columns is-multiline is-mobile is-8 is-variable">
 								    <div className="column is-narrow">
 					        		<ul>

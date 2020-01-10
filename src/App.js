@@ -120,11 +120,6 @@ export default class App extends React.Component {
           path: "mailto:justin.letourn@gmail.com",
           icon: "fa-envelope",
           text: "Email"
-        },
-        {
-          path: "https://www.facebook.com/justin.letourneau",
-          icon: "fa-facebook",
-          text: "Facebook"
         }
       ]
       // <span className="icon is-link is-small is-spaced">

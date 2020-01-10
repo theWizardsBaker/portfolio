@@ -15,10 +15,15 @@ export default class Artwork extends React.Component {
           text: "Instagram"
         },
         {
+          path: "https://www.facebook.com/justin.letourneau",
+          icon: "fa-facebook",
+          text: "Facebook"
+        },
+        {
           path: "https://photos.app.goo.gl/7jXetCKFWQFwymFR9",
           icon: "fa-book",
           text: "Sample Work"
-        }
+        },
       ]
     }
   }
