@@ -28,7 +28,7 @@ export default class App extends React.Component {
         },
         {
           path: '/projects',
-          name: 'Personal Projects',
+          name: 'Current Projects',
           title: '&lsaquo; Games Projects Testing &rsaquo;',
           component: lazy(() => import('./components/Games'))
         }

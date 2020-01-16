@@ -278,7 +278,7 @@ export default class HomePage extends React.Component {
 		      				<div className="box">
 			      				<h3 className="title is-3">Quetza LLC</h3>
 			      				<h3 className="subtitle is-5">CTO</h3>
-			      				<div className="field is-grouped is-grouped-multiline has-text-weight-bold">
+			      				<div className="field is-grouped is-grouped-multiline has-text-weight-bold is-hidden-mobile">
 				      				<div className="control">
 					      				<div className="tags has-addons">
 					      					<span className="tag is-success">Front End</span>
@@ -296,6 +296,20 @@ export default class HomePage extends React.Component {
 					      					<span className="tag is-success">Databases</span>
 						      				<span className="tag is-info">PostgreSQL</span>
 					      				</div>
+					      			</div>
+				      			</div>
+			      				<div className="has-text-weight-bold is-hidden-tablet">
+			      					<div className="tags">
+				      					<span className="tag is-success">Front End</span>
+				      					<span className="tag is-info">Vue.js Vuex OAuth Axios Bulma</span>
+				      				</div>
+				      				<div className="tags">
+				      					<span className="tag is-success">Back End</span>
+				      					<span className="tag is-info">Node.js API JWT Sequelize</span>
+				      				</div>
+				      				<div className="tags">
+				      					<span className="tag is-success">Databases</span>
+					      				<span className="tag is-info">PostgreSQL</span>
 					      			</div>
 				      			</div>
 				      			<br/>
@@ -335,7 +349,7 @@ export default class HomePage extends React.Component {
 		      				<div className="box">
 			      				<h3 className="title is-3">University of Missouri</h3>
 			      				<h3 className="subtitle is-5">Research Linux Administrator, Programmer</h3>
-			      				<div className="field is-grouped is-grouped-multiline has-text-weight-bold">
+			      				<div className="field is-grouped is-grouped-multiline has-text-weight-bold is-hidden-mobile">
 				      				<div className="control">
 					      				<div className="tags has-addons">
 					      					<span className="tag is-success">Programming</span>
@@ -360,6 +374,24 @@ export default class HomePage extends React.Component {
 						      				<span className="tag is-info">PostgreSQL MongoDB ArangoDB</span>
 					      				</div>
 					      			</div>
+				      			</div>
+			      				<div className="has-text-weight-bold is-hidden-tablet">
+				      				<div className="tags">
+				      					<span className="tag is-success">Programming</span>
+				      					<span className="tag is-info">Java Python Ruby Perl C++ PHP Bash</span>
+				      				</div>
+				      				<div className="tags">
+				      					<span className="tag is-success">Front End</span>
+				      					<span className="tag is-info">Vue.js React.js Drupal</span>
+				      				</div>
+				      				<div className="tags">
+				      					<span className="tag is-success">Back End</span>
+				      					<span className="tag is-info">Node.js API Groovy Django</span>
+				      				</div>
+				      				<div className="tags">
+				      					<span className="tag is-success">Databases</span>
+					      				<span className="tag is-info">PostgreSQL MongoDB ArangoDB</span>
+				      				</div>
 				      			</div>
 				      			<br/>
 				      			<div className="container">
@@ -396,7 +428,7 @@ export default class HomePage extends React.Component {
 				      		<div className="box">
 			      				<h3 className="title is-3">University of Missouri</h3>
 			      				<h3 className="subtitle is-5">Programmer Analyst, Finance</h3>
-			      				<div className="field is-grouped is-grouped-multiline has-text-weight-bold">
+			      				<div className="field is-grouped is-grouped-multiline has-text-weight-bold is-hidden-mobile">
 				      				<div className="control">
 					      				<div className="tags has-addons">
 					      					<span className="tag is-success">Front End</span>
@@ -415,6 +447,20 @@ export default class HomePage extends React.Component {
 						      				<span className="tag is-info">OracleDB</span>
 					      				</div>
 					      			</div>
+				      			</div>
+			      				<div className="has-text-weight-bold is-hidden-tablet">
+				      				<div className="tags">
+				      					<span className="tag is-success">Front End</span>
+				      					<span className="tag is-info">Javascript jQuery</span>
+				      				</div>
+				      				<div className="tags">
+				      					<span className="tag is-success">Back End</span>
+				      					<span className="tag is-info">ColdFusion Peoplesoft</span>
+				      				</div>
+				      				<div className="tags">
+				      					<span className="tag is-success">Databases</span>
+					      				<span className="tag is-info">OracleDB</span>
+				      				</div>
 				      			</div>
 				      			<br/>
 				      			<div className="container">
@@ -440,7 +486,7 @@ export default class HomePage extends React.Component {
 			      			<div className="box">
 			      				<h3 className="title is-3">Freelance</h3>
 			      				<h3 className="subtitle is-5">Everything</h3>
-			      				<div className="field is-grouped is-grouped-multiline has-text-weight-bold">
+			      				<div className="field is-grouped is-grouped-multiline has-text-weight-bold is-hidden-mobile">
 				      				<div className="control">
 					      				<div className="tags has-addons">
 					      					<span className="tag is-success">Front End</span>
@@ -471,6 +517,28 @@ export default class HomePage extends React.Component {
 						      				<span className="tag is-info">C++ QT</span>
 					      				</div>
 					      			</div>
+				      			</div>
+			      				<div className="has-text-weight-bold is-hidden-tablet">
+					      				<div className="tags">
+					      					<span className="tag is-success">Front End</span>
+					      					<span className="tag is-info">Javascript</span>
+					      				</div>
+					      				<div className="tags">
+					      					<span className="tag is-success">Back End</span>
+					      					<span className="tag is-info">PHP Ruby on Rails</span>
+					      				</div>
+					      				<div className="tags">
+					      					<span className="tag is-success">Databases</span>
+						      				<span className="tag is-info">MySQL SQLite</span>
+					      				</div>
+					      				<div className="tags">
+					      					<span className="tag is-success">Mobile</span>
+						      				<span className="tag is-info">Android</span>
+					      				</div>
+					      				<div className="tags">
+					      					<span className="tag is-success">Desktop</span>
+						      				<span className="tag is-info">C++ QT</span>
+					      				</div>
 				      			</div>
 				      			<br/>
 				      			<div className="container">
@@ -511,10 +579,10 @@ export default class HomePage extends React.Component {
 	  				</h3>*/}
       			<h3 className="subtitle is-6 has-text-centered"><i>*Learning / Exploring</i></h3>
       			<div>
-	      			<div className="columns is-multiline is-mobile is-8 is-variable">
+	      			<div className="columns is-multiline is-mobile is-variable">
 						    <div className="column is-12-mobile is-8-tablet is-narrow">
 						    	<h1 className="title is-4 drop-shadow-light">Web Development</h1>
-						    	<div className="columns is-multiline is-mobile is-8 is-variable">
+						    	<div className="columns is-multiline is-mobile is-variable">
 						    		<div className="column is-narrow">
 				          		<ul>
 						          	<li>
