@@ -32,32 +32,46 @@ $yellow: rgba(55, 50, 62, 1);
 $family-sans-serif: 'Roboto', sans-serif;
 
 $footer-background-color: #141217;
+$box-background-color: $yellow;
 
-@import '../node_modules/bulma/sass/utilities/_all.sass';
-@import '../node_modules/bulma/sass/base/_all.sass';
-@import '../node_modules/bulma/sass/grid/_all.sass';
-@import '../node_modules/bulma/sass/elements/content.sass';
-@import '../node_modules/bulma/sass/elements/button.sass';
-@import '../node_modules/bulma/sass/elements/container.sass';
-@import '../node_modules/bulma/sass/elements/icon.sass';
-// @import '../node_modules/bulma/sass/elements/form.sass';
-@import '../node_modules/bulma/sass/elements/title.sass';
-// @import '../node_modules/bulma/sass/components/navbar.sass';
-@import '../node_modules/bulma/sass/components/level.sass';
-@import '../node_modules/bulma/sass/layout/hero.sass';
-@import '../node_modules/bulma/sass/layout/section.sass';
-@import '../node_modules/bulma/sass/layout/footer.sass';
+
+@import '~bulma/sass/utilities/_all.sass';
+$box-color: rgba(255, 255, 255, 0.9);
+
+@import '~bulma/sass/base/_all.sass';
+@import '~bulma/sass/grid/_all.sass';
+@import '~bulma/sass/form/_all.sass';
+@import '~bulma/sass/elements/content.sass';
+@import '~bulma/sass/elements/button.sass';
+@import '~bulma/sass/elements/container.sass';
+@import '~bulma/sass/elements/icon.sass';
+@import '~bulma/sass/elements/title.sass';
+@import "~bulma/sass/elements/tag.sass";
+@import "~bulma/sass/elements/box.sass";
+// @import '~bulma/sass/elements/form.sass';
+// @import '~bulma/sass/components/navbar.sass';
+@import '~bulma/sass/components/level.sass';
+@import '~bulma/sass/layout/hero.sass';
+@import '~bulma/sass/layout/section.sass';
+@import '~bulma/sass/layout/footer.sass';
 @import './styles/navbar.sass'
-// @import './styles/orgchart.css'
 @import './styles/loading.css'
+// @import './styles/orgchart.css'
 
 /* .navbar
 	position: absolute;
 	width: 100%;
 	background-color: transparent; */
 
+
 h1.title, span.title
 	font-family: 'Assistant', sans-serif;
+
+.heading
+	padding-bottom: 5px;
+	border-bottom: 2px solid;
+	+ p
+		margin-top: 15px;
 
 .drop-shadow
 	text-shadow: 8px 5px 4px rgba(0, 0, 0, 0.4);
@@ -84,6 +98,10 @@ h1.title, span.title
 
 .hero-right
 	filter: blur(1px);
+
+.tag
+	& + .tag
+		word-spacing: 10px;
 
 hr.small-divider
 	// background-color: $yellow
@@ -147,12 +165,21 @@ p.paragraph
 	&::first-letter
 	    font-size: 1.7em;
 	    line-height: 1em;
-	a 
+	a
 		color: $turquoise;
 
-p 
-	a:hover
-		text-decoration: underline;
+a.link
+	color: #1c99e0 !important;
+	&:hover
+		color: $color1;
+		text-decoration: underline;	
+
+p
+	a
+		color: #1c99e0;
+		&:hover
+			color: $color1;
+			text-decoration: underline;
 
 .level-item + .level-item
 	padding: 10px;

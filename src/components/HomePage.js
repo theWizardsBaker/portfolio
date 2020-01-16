@@ -1,5 +1,6 @@
 import React from 'react';
 import LinkList from './LinkList.js';
+import { NavLink } from "react-router-dom";
 
 export default class HomePage extends React.Component {
 
@@ -247,10 +248,10 @@ export default class HomePage extends React.Component {
 						      	<p className="paragraph drop-shadow-light">
 						      		<span className="first-word">Hello there</span>,
 						      		I'm Justin. I am a software developer and linux admin with over 8 years of professional experience.
-						      		I design, develop and deploy full-stack web, mobile and standard applications.
-						      		I administer and deploy a variety of Debian and Redhat Linux systems for an <a href="https://elsiklab.missouri.edu/" target="_blank" rel="noopener noreferrer">evolutionary biology lab </a> 
-						      		where I also write and contribute to bioinformatics software.
-						      		I am CTO and sole developer for <a href="https://www.seegenetics.com" target="_blank" rel="noopener noreferrer">Quetza LLC</a>, a company dedicated to developing agricultural educational software.
+						      		I design, develop and deploy full-stack web, mobile and desktop applications.
+						      		I administer and deploy on a variety of Debian and Redhat Linux systems.
+						      		I have worked as a freelancer, software engineer and system admin. 
+						      		Check out my experience and qualifications below.
 					      		</p>
 					      		<div className="container has-text-white">
 					      			<br/>
@@ -263,31 +264,255 @@ export default class HomePage extends React.Component {
 		      	</div>
 	      	</div>
       	</div>
-      	<div className="hero is-link is-bold">
+      	<div className="hero is-link is-bold is-medium">
       		<div className="hero-body">
-      			<div className="columns is-8 vertical-align">
-	      			<div className="column is-8-tablet">
-	    					<div className="cover">
-	    						<div className="cover-image"></div>
-			    				<div id="visualization">
-			    				</div>
-	    					</div>
-		    			</div>
-	      			<div className="column is-4-tablet">
-		      			<h1 className="title is-2 has-text-centered drop-shadow-light is-spaced">Skills & Proficiencies</h1>
-		      			<h3 className="title is-5 has-text-centered drop-shadow-light is-spaced is-hidden-mobile">
-		      				double click to expand selections
-	      				</h3>
-	      			</div>
-		    		</div>
-      		</div>
+      			<h1 className="title is-2 has-text-centered drop-shadow-light">Projects & Experience</h1>
+      			<div className="subtitle is-6 has-text-centered drop-shadow-ligh is-spaced">
+      				personal projects <NavLink to='/projects' className="link" exact>here</NavLink>
+      			</div>
+      			<br/>
+      			<br/>
+      			<div className="container">
+	      			<div className="columns is-multiline">
+		      			<div className="column is-6-tablet">
+		      				<div className="box">
+			      				<h3 className="title is-3">Quetza LLC</h3>
+			      				<h3 className="subtitle is-5">CTO</h3>
+			      				<div className="field is-grouped is-grouped-multiline has-text-weight-bold">
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Front End</span>
+					      					<span className="tag is-info">Vue.js Vuex OAuth Axios Bulma</span>
+					      				</div>
+					      			</div>
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Back End</span>
+					      					<span className="tag is-info">Node.js API JWT Sequelize</span>
+					      				</div>
+					      			</div>
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Databases</span>
+						      				<span className="tag is-info">PostgreSQL</span>
+					      				</div>
+					      			</div>
+				      			</div>
+				      			<br/>
+				      			<div className="container">
+					      			<div className="content">
+					      				<h2 className="title is-5 is-marginless has-text-primary is-spaced heading">About</h2>
+					      				<p>
+						      				In 2018 I co-founded an educational software company, Quetza, with a friend, basing it around her PHD research project.
+						      				I am the sole programmer and game designer. My business partner is responsible for the educational content.
+						      				Initially titled "the Cow Game", our simulation, <a href="https://www.seebeefgenetics.com/" target="_blank" rel="noopener noreferrer">SeeBeefGenetics</a>, is an online cattle
+						      				breeding simulation. The program teaches high school and undergraduate students how to use genetics in the real world with beef cattle as a model.
+						      				We are currently in beta testing with over 36 institutions worldwide providing us feedback.
+						      				We're working to expand the <a href="https://www.seegenetics.com" target="_blank" rel="noopener noreferrer">SeeGenetics</a> brand to
+						      				offer simulations in other species, such as swine, goat and dog.
+						      			</p>
+						      			<p>
+						      				We were winners in both the 2018 <a href="https://www.columbiamissourian.com/news/local/women-bosses-share-startups-at-pitch-contest/article_8bf665ec-49bb-11e8-9f9b-9b79050c0cd9.html" target="_blank" rel="noopener noreferrer">Women Owned Business Startup Pitch</a> and the <a href="https://business.missouri.edu/about/news/tiger-cage-pitch-competition-awards-18000-seed-funding" target="_blank" rel="noopener noreferrer">Mizzou Tiger Cage Startup Pitch</a>.
+					      				</p>
+					      			</div>
+					      			<div className="content">
+					      				<h2 className="title is-5 is-marginless has-text-primary is-spaced heading">Technical</h2>
+					      				<p>
+					      					The simulation is a single page web app built using Vue.js. It incorporates Vuex for state management and Axios for
+					      					AJAX communication. I wrote a decision tree based AI that observes and comments on student's progress; a key feature in the game.
+					      					The student's AI companion 'Vince the Extension Agent' offers advice, guidance and provides quizzes to the students
+					      					as a way to reinforce the learning objectives.
+					      					<br/>
+					      					On the backend, I'm using Node.js with Express.js to serve the API.
+					      					I built an OAuth authentication server that uses JSON Web Tokens for managing state.
+					      					Our Postgres database is accessed via Sequelize.
+					      				</p>
+					      			</div>
+					      		</div>
+				      		</div>
+		      			</div>
+		      			<div className="column is-6-tablet">
+		      				<div className="box">
+			      				<h3 className="title is-3">University of Missouri</h3>
+			      				<h3 className="subtitle is-5">Research Linux Administrator, Programmer</h3>
+			      				<div className="field is-grouped is-grouped-multiline has-text-weight-bold">
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Programming</span>
+					      					<span className="tag is-info">Java Python Ruby Perl C++ PHP Bash</span>
+					      				</div>
+					      			</div>
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Front End</span>
+					      					<span className="tag is-info">Vue.js React.js Drupal</span>
+					      				</div>
+					      			</div>
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Back End</span>
+					      					<span className="tag is-info">Node.js API Groovy Django</span>
+					      				</div>
+					      			</div>
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Databases</span>
+						      				<span className="tag is-info">PostgreSQL MongoDB ArangoDB</span>
+					      				</div>
+					      			</div>
+				      			</div>
+				      			<br/>
+				      			<div className="container">
+					      			<div className="content">
+					      				<h2 className="title is-5 is-marginless has-text-primary is-spaced heading">About</h2>
+					      				<p>
+					      					I am currently a researcher in an <a href="https://elsiklab.missouri.edu/" target="_blank" rel="noopener noreferrer">evolutionary biology lab </a>
+					      					at the University of Missouri. My responsibilities are developing and maintaining software as well as administering our (10)
+					      					servers and switches. I was part of the <a href="https://missouriepscor.org/" target="_blank" rel="noopener noreferrer">Missouri EPSCoR</a> project,
+					      					where I developed ancillary <a href="https://modirt.missouriepscor.org/" target="_blank" rel="noopener noreferrer">websites</a>
+					      					, <a href="http://radar.missouriepscor.org/">tools</a>, <a href="http://128.206.234.21:3000/#/" target="_blank" rel="noopener noreferrer">demos</a> and a <a href="https://data.missouriepscor.org/" target="_blank" rel="noopener noreferrer">dataportal</a>.
+					      					I was in charge of data management policy, storage and archiving. I helped researchers comply with <a href="https://www.dataone.org/">DataOne</a> policies and architect their <a href="https://github.com/theWizardsBaker/ckan_privatedataset">data storage</a>.
+					      					I've written packages to help them navigate and <a href="https://github.com/theWizardsBaker/ckan_inotify">use</a> the research computing servers.
+					      				</p>
+					      				<p>
+											  	Currently I write and contribute to <a href="https://github.com/elsiklab">bioinformatics software</a>. Our <a href="http://maizemine.rnet.missouri.edu:8080/maizemine/begin.do">intermine software</a> is used for data mining and our <a href="http://128.206.116.5:8080/apollo-lsaa/2236/jbrowse/index.html?loc=1%3A62958895..94439600&tracks=DNA%2CAnnotations&highlight=">jBrowse Apollo</a> is used for gene annotation.
+											  	I collaborate with other labs on <a href="https://github.com/theWizardsBaker/PED_file_generator/blob/master/ped_generator.py" target="_blank" rel="noopener noreferrer">genomic pipelines</a> and <a href="https://github.com/theWizardsBaker/vcf_prep"  target="_blank" rel="noopener noreferrer">data processing</a>. I help students with projects and running statistics in R and MatLab.
+											  	I keep our servers secured and up to date. I deploy a lot of virtual machines using KVM and keep all of our infrastructure running.
+											  	Sometimes I just write fun things, like this <a href="https://github.com/theWizardsBaker/sbatch_gen">SLURM generator</a> and <a href="https://github.com/theWizardsBaker/HPC-Dashboard" target="_blank" rel="noopener noreferrer">HPC Job Submission tool</a>.
+					      				</p>
+					      			</div>
+					      			<div className="content">
+					      				<h2 className="title is-5 is-marginless has-text-primary is-spaced heading">Technical</h2>
+					      				<p>
+					      					Our pipelines are written in Ruby, Python, Perl, C++, Shell and Java.
+					      					Our databases are huge (12tb each &#128556;) PostgreSQL databases. We've also been working on storing variants (VCF files) in NoSQL / Graph databases.
+					      					Web projects use Django, Groovy, Drupal (PHP), Node.js, Vue.js and React.js. Really, we just use whatever tool is right for the job.
+					      				</p>
+					      			</div>
+					      		</div>
+					      	</div>
+		    				</div>
+			      		<div className="column is-6-tablet">
+				      		<div className="box">
+			      				<h3 className="title is-3">University of Missouri</h3>
+			      				<h3 className="subtitle is-5">Programmer Analyst, Finance</h3>
+			      				<div className="field is-grouped is-grouped-multiline has-text-weight-bold">
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Front End</span>
+					      					<span className="tag is-info">Javascript jQuery</span>
+					      				</div>
+					      			</div>
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Back End</span>
+					      					<span className="tag is-info">ColdFusion Peoplesoft</span>
+					      				</div>
+					      			</div>
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Databases</span>
+						      				<span className="tag is-info">OracleDB</span>
+					      				</div>
+					      			</div>
+				      			</div>
+				      			<br/>
+				      			<div className="container">
+				      				<div className="content">
+					      				<h2 className="title is-5 is-marginless has-text-primary is-spaced heading">About</h2>
+					      				<p>
+					      					I worked in the financial department of the University of Missouri writing <a href="https://webapps.umsystem.edu/">applications</a> for the controllers and accountants.
+					      					Our programs were used on campus by staff and faculty. I worked closely with the head controllers to make custom applications
+					      					that subverted Peoplesoft's limitations.
+					      					I ended up re-writing the entire code base and created a web framework that would create reports based on JSON template files.
+					      				</p>
+					      			</div>
+					      			<div className="content">
+					      				<h2 className="title is-5 is-marginless has-text-primary is-spaced heading">Technical</h2>
+					      				<p>
+					      					I wrote web applications in Javascript and Adobe's ColdFusion. I introduced jQuery and Git version control to the team.
+					      				</p>
+					      			</div>
+					      		</div>
+					      	</div>
+			      		</div>
+			      		<div className="column is-6-tablet">
+			      			<div className="box">
+			      				<h3 className="title is-3">Freelance</h3>
+			      				<h3 className="subtitle is-5">Everything</h3>
+			      				<div className="field is-grouped is-grouped-multiline has-text-weight-bold">
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Front End</span>
+					      					<span className="tag is-info">Javascript</span>
+					      				</div>
+					      			</div>
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Back End</span>
+					      					<span className="tag is-info">PHP Ruby on Rails</span>
+					      				</div>
+					      			</div>
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Databases</span>
+						      				<span className="tag is-info">MySQL SQLite</span>
+					      				</div>
+					      			</div>
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Mobile</span>
+						      				<span className="tag is-info">Android</span>
+					      				</div>
+					      			</div>
+				      				<div className="control">
+					      				<div className="tags has-addons">
+					      					<span className="tag is-success">Desktop</span>
+						      				<span className="tag is-info">C++ QT</span>
+					      				</div>
+					      			</div>
+				      			</div>
+				      			<br/>
+				      			<div className="container">
+				      				<div className="content">
+					      				<h2 className="title is-5 is-marginless has-text-primary is-spaced heading">About</h2>
+					      				<p>
+					      					I've worked on many projects as a freelancer. I've built phone, desktop and web applications. A few examples include: 
+					      					working on Android applications for <a href="http://crallomeatmarket.com/index.php">C. Rallo Meat Company</a> in O'Fallon Missouri as well as a C++ application to control pricing and operation of
+					      					meat scales. Another being, developing the <a href="http://slwoa.com/">St. Louis Wrestling Official Association</a> website to enable online scheduling of officials to 
+					      					area wrestling meets.
+					      				</p>
+					      			</div>
+				      				<div className="content">
+					      				<h2 className="title is-5 is-marginless has-text-primary is-spaced heading">Technical</h2>
+					      				<p>
+					      					I wrote the Android applications in Java and used PHP and Ruby on Rails for web development.
+					      				</p>
+					      			</div>
+					      		</div>
+					      	</div>
+			      		</div>
+			      	</div>
+			      </div>
+	      	</div>
       	</div>
       	<div className="hero is-warning">
       		<div className="hero-body">
+  					<div className="cover">
+  						<div className="cover-image"></div>
+	    				<div id="visualization">
+	    				</div>
+  					</div>
+      		</div>
+      		<div className="hero-body">
+	      		<h1 className="title is-2 has-text-centered drop-shadow-light is-spaced">Skills & Proficiencies</h1>
+	    			{/*<h3 className="title is-5 has-text-centered drop-shadow-light is-spaced is-hidden-mobile">
+	    				double click to expand selections
+	  				</h3>*/}
       			<h3 className="subtitle is-6 has-text-centered"><i>*Learning / Exploring</i></h3>
       			<div>
 	      			<div className="columns is-multiline is-mobile is-8 is-variable">
-						    <div className="column is-12-mobile is-7-tablet is-8-desktop">
+						    <div className="column is-12-mobile is-8-tablet is-narrow">
 						    	<h1 className="title is-4 drop-shadow-light">Web Development</h1>
 						    	<div className="columns is-multiline is-mobile is-8 is-variable">
 						    		<div className="column is-narrow">
@@ -376,7 +601,7 @@ export default class HomePage extends React.Component {
 					          </div>
 						      </div>
 						    </div>
-						    <div className="column is-narrow">
+						    <div className="column is-12-mobile is-4-tablet is-narrow">
 				        	<h1 className="title is-4 drop-shadow-light">Application Development</h1>
 						    	<div className="columns is-mobile">
 						    		<div className="column is-narrow">
@@ -418,8 +643,8 @@ export default class HomePage extends React.Component {
 							      </div>
 						      </div>
 							  </div>
-	      				<div className="column">
-					    	<h1 className="title is-4 drop-shadow-light">DevOps</h1>
+	      				<div className="column is-12-mobile is-12-tablet is-narrow">
+						    	<h1 className="title is-4 drop-shadow-light">DevOps</h1>
 			      			<div className="columns is-multiline is-mobile is-8 is-variable">
 								    <div className="column is-narrow">
 					        		<ul>

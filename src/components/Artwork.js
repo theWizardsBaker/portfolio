@@ -55,6 +55,9 @@ export default class Artwork extends React.Component {
                       <h3 className="title is-4 has-text-centered">
                         Available for pet portraits and other commissions
                       </h3>
+                      <h3 className="title is-4 has-text-centered">
+                        Contact me for pricing information
+                      </h3>
                     </div>
                   </div>
                 </div>
@@ -67,7 +70,7 @@ export default class Artwork extends React.Component {
             <div className="artwork section">
               <div className="container is-fluid">
                 <div className="columns is-centered">
-                  <div className="column is-one-quarter">
+                  <div className="column is-one-third">
                     <LinkList links={this.state.links} size="large" />
                   </div>
                 </div>

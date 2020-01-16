@@ -89,6 +89,30 @@ export default class Games extends React.Component {
 										</div>
                   </div>
                 </div>
+                <div className="section">
+                  <div className="container is-fluid has-text-centered">
+                    <h3 className="title drop-shadow-light">PushPress Auto-Register</h3>
+                    <p>
+                      PushPress is an app my gym uses for signing into classes. It sucks. 
+                      I just wrote this script to auto-register me for classes. Just run it as a cron and always have a spot in the class.
+                    </p>
+                    <br/>
+                    <div className="columns is-centered">
+                      <div className="column is-half-tablet">
+                        <nav className="level">
+                          <div className="level-item has-text-centered">
+                            <a href="https://github.com/theWizardsBaker/pushPressAutoRegister" target="_blank" rel="noopener noreferrer" className="has-text-white">
+                              <span className="icon is-link is-large is-spaced">
+                                <i className="fa fa-github fa-3x" aria-hidden="true"></i>
+                              </span>
+                              <div className="subtitle is-5">Source Code</div>
+                            </a>
+                          </div>
+                        </nav>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
         	</div>
