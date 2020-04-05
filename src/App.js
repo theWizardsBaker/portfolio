@@ -18,7 +18,7 @@ export default class App extends React.Component {
           path: '/',
           name: 'Programming',
           title: "\{ Developer Administrator Co-Founder \}",
-          component: lazy(() => import('./components/HomePage'))
+          component: lazy(() => import('./components/HomePage')),
         },
         {
           path: '/artwork',
@@ -31,6 +31,13 @@ export default class App extends React.Component {
           name: 'Current Projects',
           title: '&lsaquo; Games Projects Testing &rsaquo;',
           component: lazy(() => import('./components/Games'))
+        },
+        {
+          path: '/emdr',
+          name: 'EMDR',
+          title: '&lsaquo; EMDR Squirell for Stephanie &rsaquo;',
+          component: lazy(() => import('./components/EMDR')),
+          show: false
         }
       ],
       photos: [
