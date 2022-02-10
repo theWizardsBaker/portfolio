@@ -39,7 +39,7 @@
     "babel-plugin-inline-import": "^3.0.0",
     "bulma": "^0.8.0",
     "copy-webpack-plugin": "^5.1.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "raw-loader": "^4.0.0",
     "react-app-rewired": "^2.1.5"
   }
